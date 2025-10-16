@@ -11,6 +11,16 @@ The primary objective of this file is to establish a systematic documentation pr
 
 For every major task, you must generate a comprehensive and well-structured markdown file. The file should adhere to the following sections, adapting the content to the specific task type:
 
+#### 📁 Documentation Location
+
+All task documentation files must be created and stored in the project root's `docs/knowledge-transfer/` directory. This centralized location ensures:
+- Easy discovery and access for all team members
+- Consistent organization across projects
+- Clear separation from code and configuration files
+- Better version control and history tracking
+
+**File Naming Convention:** Use descriptive names that include the task identifier, such as `task-1-setup-documentation.md` or `task-2-type-definitions.md`.
+
 #### 1. Task Summary & Goal
 * **Objective:** A clear, high-level statement of the problem to be solved or the goal to be achieved. Rephrase the original request to demonstrate understanding.
 
