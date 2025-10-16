@@ -2,17 +2,61 @@
 
 ## Overview
 
-The To Do List application will be built as a single-page application (SPA) using React with TypeScript for type safety and better developer experience. The application will use modern CSS with CSS Modules for styling, ensuring a clean and responsive design. Data persistence will be handled through the browser's localStorage API, making it a truly frontend-only solution.
+The To Do List application will be built as a single-page application (SPA) using React with TypeScript for type safety and better developer experience. The application will use Tailwind CSS for utility-first styling, ensuring a clean and responsive design. Data persistence will be handled through the browser's localStorage API, making it a truly frontend-only solution.
+
+### Technology Version Strategy
+
+This project uses **stable, production-ready versions** of all technologies to ensure:
+- **Reliability**: Battle-tested versions with known stability
+- **Compatibility**: All dependencies work seamlessly together
+- **Long-term Support**: Node.js 20 LTS is supported until April 2026
+- **Ecosystem Maturity**: React 18.3.1 has extensive documentation and community support
+- **Learning-Friendly**: Stable versions have more tutorials and resources available
+
+**Version Selection Criteria:**
+1. **Node.js 20.19.5**: Latest LTS "Iron" release, optimal for modern JavaScript tooling
+2. **React 18.3.1**: Latest stable React 18, avoiding React 19's breaking changes for simplicity
+3. **Latest Stable Tooling**: Vite 7, TypeScript 5.9, Tailwind 4 - all current stable releases
+4. **Vitest over Jest**: Native Vite integration for faster test execution
+5. **Modern ESLint 9**: Latest flat config system for better configuration management
 
 ## Architecture
 
 ### Technology Stack
-- **Frontend Framework:** React 18 with TypeScript
-- **Styling:** Tailwind CSS for utility-first styling with responsive design
-- **State Management:** React useState and useEffect hooks
-- **Data Persistence:** Browser localStorage API
-- **Build Tool:** Vite for fast development and optimized builds
-- **Package Manager:** npm
+
+#### Core Runtime & Build Tools
+- **Node.js:** v20.19.5 (LTS "Iron" - Active until April 2026)
+- **Package Manager:** npm v10.8.2 (bundled with Node 20.19.5)
+- **Build Tool:** Vite v7.1.10 (latest stable)
+
+#### Frontend Framework & Language
+- **Frontend Framework:** React v18.3.1 (latest stable React 18)
+- **React DOM:** v18.3.1 (matches React version)
+- **TypeScript:** v5.9.3 (latest stable)
+
+#### Styling
+- **CSS Framework:** Tailwind CSS v4.1.14 (latest stable)
+- **PostCSS:** v8.x (required by Tailwind)
+- **Autoprefixer:** v10.x (CSS vendor prefixing)
+
+#### State Management & Data
+- **State Management:** React useState and useEffect hooks (built-in)
+- **Data Persistence:** Browser localStorage API (native Web API)
+
+#### Code Quality & Formatting
+- **Linter:** ESLint v9.37.0 (latest stable)
+- **Formatter:** Prettier v3.6.2 (latest stable)
+- **TypeScript ESLint:** @typescript-eslint/parser and @typescript-eslint/eslint-plugin (latest compatible)
+
+#### Testing & Documentation
+- **Test Runner:** Vitest v3.2.4 (latest stable, Vite-native alternative to Jest)
+- **Testing Library:** @testing-library/react v16.3.0 (latest stable for React 18)
+- **Testing Utilities:** @testing-library/jest-dom v6.x, @testing-library/user-event v14.x
+- **Component Documentation:** Storybook v9.1.10 (latest stable)
+
+#### Development Tools
+- **Type Definitions:** @types/react v18.x, @types/react-dom v18.x, @types/node v20.x
+- **Vite Plugins:** @vitejs/plugin-react (for React Fast Refresh and JSX support)
 
 ### Application Structure
 ```
@@ -178,7 +222,10 @@ interface StorageSchema {
 
 ### Testing Approach
 ```typescript
-// Example test structure
+// Example test structure using Vitest
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+
 describe('TodoApp', () => {
   describe('Adding todos', () => {
     it('should add a new todo when valid text is provided');
@@ -192,6 +239,44 @@ describe('TodoApp', () => {
     it('should cancel edit on Escape key');
   });
 });
+```
+
+### Version Compatibility Matrix
+
+| Technology | Version | Compatibility Notes |
+|------------|---------|---------------------|
+| Node.js | 20.19.5 | LTS until April 2026 |
+| React | 18.3.1 | Stable, excellent ecosystem support |
+| TypeScript | 5.9.3 | Full React 18 support |
+| Vite | 7.1.10 | Optimized for Node 20+ |
+| Tailwind CSS | 4.1.14 | Latest stable with PostCSS 8 |
+| Vitest | 3.2.4 | Native Vite integration |
+| Storybook | 9.1.10 | Full Vite + React 18 support |
+| ESLint | 9.37.0 | Latest flat config support |
+
+### Installation Commands
+
+```bash
+# Initialize project with Vite
+npm create vite@7.1.10 todo-app -- --template react-ts
+
+# Install core dependencies
+npm install react@18.3.1 react-dom@18.3.1
+
+# Install Tailwind CSS
+npm install -D tailwindcss@4.1.14 postcss@8 autoprefixer@10
+
+# Install development tools
+npm install -D typescript@5.9.3 @types/react@18 @types/react-dom@18 @types/node@20
+
+# Install testing dependencies
+npm install -D vitest@3.2.4 @testing-library/react@16.3.0 @testing-library/jest-dom@6 @testing-library/user-event@14 jsdom
+
+# Install Storybook
+npx storybook@9.1.10 init
+
+# Install code quality tools
+npm install -D eslint@9.37.0 prettier@3.6.2 @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
 ## User Interface Design
