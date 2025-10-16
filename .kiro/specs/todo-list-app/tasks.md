@@ -7,7 +7,7 @@
   - Install and configure testing dependencies (Jest, RTL, Storybook)
   - _Requirements: 7.3_
 
-- [ ] 2. Create core type definitions and utilities
+- [x] 2. Create core type definitions and utilities
   - Define Todo interface and related types in types/todo.ts
   - Implement storage utility functions for localStorage operations
   - Create UUID generation utility for todo IDs
