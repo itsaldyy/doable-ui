@@ -1,0 +1,5 @@
+#!/bin/sh
+# Husky pre-commit hook
+# Delegates to our custom pre-commit orchestrator
+
+bash scripts/git-hooks/pre-commit.sh
