@@ -17,7 +17,7 @@ This project uses **stable, production-ready versions** of all technologies to e
 1. **Node.js 20.19.5**: Latest LTS "Iron" release, optimal for modern JavaScript tooling
 2. **React 18.3.1**: Latest stable React 18, avoiding React 19's breaking changes for simplicity
 3. **Latest Stable Tooling**: Vite 7, TypeScript 5.9, Tailwind 4 - all current stable releases
-4. **Vitest over Jest**: Native Vite integration for faster test execution
+4. **Jest Testing Framework**: Industry-standard testing framework with extensive workplace adoption
 5. **Modern ESLint 9**: Latest flat config system for better configuration management
 
 ## Architecture
@@ -49,10 +49,13 @@ This project uses **stable, production-ready versions** of all technologies to e
 - **TypeScript ESLint:** @typescript-eslint/parser and @typescript-eslint/eslint-plugin (latest compatible)
 
 #### Testing & Documentation
-- **Test Runner:** Vitest v3.2.4 (latest stable, Vite-native alternative to Jest)
+- **Test Runner:** Jest v30.2.0 (latest stable, industry-standard testing framework)
+- **TypeScript Support:** ts-jest v29.4.5 (TypeScript preprocessor for Jest)
+- **Test Environment:** jest-environment-jsdom v30.2.0 (DOM environment for React testing)
 - **Testing Library:** @testing-library/react v16.3.0 (latest stable for React 18)
 - **Testing Utilities:** @testing-library/jest-dom v6.x, @testing-library/user-event v14.x
-- **Component Documentation:** Storybook v9.1.10 (latest stable)
+- **Type Definitions:** @types/jest v30.0.0 (TypeScript types for Jest)
+- **Component Documentation:** Storybook v9.1.10 (latest stable, visual component documentation)
 
 #### Development Tools
 - **Type Definitions:** @types/react v18.x, @types/react-dom v18.x, @types/node v20.x
@@ -204,11 +207,33 @@ interface StorageSchema {
 
 ## Testing Strategy
 
+### Testing Framework Strategy
+
+This project uses a **three-tier testing approach** aligned with industry best practices:
+
+1. **Jest (v30.2.0)** - Test Runner & Assertion Library
+   - Industry-standard testing framework with widespread workplace adoption
+   - Comprehensive mocking capabilities and snapshot testing
+   - Excellent TypeScript support via ts-jest
+   - Built-in code coverage reporting
+
+2. **React Testing Library (v16.3.0)** - Component Testing
+   - User-centric testing approach (tests behavior, not implementation)
+   - Encourages accessibility best practices
+   - Works seamlessly with Jest
+   - Recommended by React team for component testing
+
+3. **Storybook (v9.1.10)** - Visual Component Documentation
+   - Interactive component development and documentation
+   - Visual regression testing capabilities
+   - Isolated component development environment
+   - Living documentation for design system
+
 ### Unit Testing
-- **Components:** Test rendering, user interactions, and prop handling
-- **Hooks:** Test state management and side effects
-- **Utilities:** Test storage operations and data transformations
-- **Testing Library:** React Testing Library (RTL) and Storybook, both with Jest for comprehensive component functionality, behavior testing, and visual documentation
+- **Components:** Test rendering, user interactions, and prop handling using React Testing Library
+- **Hooks:** Test state management and side effects with Jest and React Testing Library hooks
+- **Utilities:** Test storage operations and data transformations with Jest
+- **Coverage:** Jest's built-in coverage reporting with Istanbul
 
 ### Integration Testing
 - **User Workflows:** Complete CRUD operations
@@ -222,21 +247,38 @@ interface StorageSchema {
 
 ### Testing Approach
 ```typescript
-// Example test structure using Vitest
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+// Example test structure using Jest and React Testing Library
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 
 describe('TodoApp', () => {
   describe('Adding todos', () => {
-    it('should add a new todo when valid text is provided');
-    it('should not add todo when text is empty');
-    it('should clear input after successful addition');
+    it('should add a new todo when valid text is provided', () => {
+      // Test implementation
+    });
+    
+    it('should not add todo when text is empty', () => {
+      // Test implementation
+    });
+    
+    it('should clear input after successful addition', () => {
+      // Test implementation
+    });
   });
   
   describe('Editing todos', () => {
-    it('should enable edit mode on double click');
-    it('should save changes on Enter key');
-    it('should cancel edit on Escape key');
+    it('should enable edit mode on double click', () => {
+      // Test implementation
+    });
+    
+    it('should save changes on Enter key', () => {
+      // Test implementation
+    });
+    
+    it('should cancel edit on Escape key', () => {
+      // Test implementation
+    });
   });
 });
 ```
@@ -250,7 +292,8 @@ describe('TodoApp', () => {
 | TypeScript | 5.9.3 | Full React 18 support |
 | Vite | 7.1.10 | Optimized for Node 20+ |
 | Tailwind CSS | 4.1.14 | Latest stable with PostCSS 8 |
-| Vitest | 3.2.4 | Native Vite integration |
+| Jest | 30.2.0 | Industry-standard testing framework |
+| React Testing Library | 16.3.0 | Latest stable for React 18 |
 | Storybook | 9.1.10 | Full Vite + React 18 support |
 | ESLint | 9.37.0 | Latest flat config support |
 
@@ -269,8 +312,9 @@ npm install -D tailwindcss@4.1.14 postcss@8 autoprefixer@10
 # Install development tools
 npm install -D typescript@5.9.3 @types/react@18 @types/react-dom@18 @types/node@20
 
-# Install testing dependencies
-npm install -D vitest@3.2.4 @testing-library/react@16.3.0 @testing-library/jest-dom@6 @testing-library/user-event@14 jsdom
+# Install testing dependencies (Jest + React Testing Library)
+npm install -D jest@30.2.0 ts-jest@29.4.5 jest-environment-jsdom@30.2.0 @types/jest@30.0.0
+npm install -D @testing-library/react@16.3.0 @testing-library/jest-dom@6 @testing-library/user-event@14
 
 # Install Storybook
 npx storybook@9.1.10 init
