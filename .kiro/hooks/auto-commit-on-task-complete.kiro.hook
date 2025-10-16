@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Auto Commit on Task Complete",
+  "description": "Automatically commit and push changes when a spec task is marked as completed, following Git best practices",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".kiro/specs/**/tasks.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A spec tasks.md file has been modified. Please check if any tasks were just marked as completed:\n\n1. Read the tasks.md file and identify if any tasks have status changes to 'completed' (look for [x] checkboxes)\n2. If a task was just completed, check git status for uncommitted changes\n3. If there are uncommitted changes related to the completed task:\n   a. Stage all relevant files (implementation files, tests, documentation)\n   b. Generate a conventional commit message following this format:\n      - Type: Use 'feat' for new features, 'fix' for bug fixes, 'test' for tests, 'docs' for documentation\n      - Scope: Derive from the task context (e.g., 'hooks', 'components', 'utils')\n      - Description: Use the task title/description\n      - Body: Include task details and requirement references\n      - Example: 'feat(hooks): implement useLocalStorage custom hook\\n\\n- Add comprehensive error handling\\n- Support data validation and migration\\n- Add cross-tab synchronization\\n\\nRequirements: 6.1, 6.2, 6.3'\n   c. Commit the changes with the generated message\n   d. Push to the current branch (typically 'develop' or feature branch)\n   e. Confirm the commit and push were successful\n4. If no tasks were completed or no changes exist, acknowledge and take no action\n5. Follow Git best practices: use imperative mood, keep first line under 50 characters, include requirement references\n6. Ensure commit messages are descriptive and follow conventional commit format (type(scope): description)"
+  }
+}
