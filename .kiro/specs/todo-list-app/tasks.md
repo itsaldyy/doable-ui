@@ -14,32 +14,32 @@
   - _Requirements: 6.1, 6.3_
 
 - [x] 3. Implement localStorage custom hook
-
-
-
-
-
   - Create useLocalStorage hook with error handling
   - Add support for data validation and migration
   - Handle localStorage unavailability gracefully
   - _Requirements: 6.1, 6.2, 6.3_
 
 - [x] 3.1 Write unit tests for useLocalStorage hook
-
-
   - Test localStorage read/write operations
   - Test error handling for unavailable storage
   - Test data validation and fallback behavior
   - _Requirements: 6.1, 6.2, 6.3_
 
-- [ ] 4. Create useTodos custom hook for state management
+- [x] 4. Create useTodos custom hook for state management
+
+
+
+
+
   - Implement CRUD operations (add, update, delete todos)
   - Integrate with localStorage for data persistence
   - Add loading and error state management
   - Handle todo sorting (newest first)
   - _Requirements: 1.1, 1.4, 2.4, 3.4, 4.4, 5.3, 6.1_
 
-- [ ] 4.1 Write unit tests for useTodos hook
+- [x] 4.1 Write unit tests for useTodos hook
+
+
   - Test all CRUD operations
   - Test localStorage integration
   - Test error handling and loading states
