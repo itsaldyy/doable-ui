@@ -118,65 +118,65 @@
     - Document interaction behaviors
     - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-- [ ]   6. Build TodoItem component with inline editing (TDD)
+- [x]   6. Build TodoItem component with inline editing (TDD)
     - Follow Red-Green-Refactor cycle for each behavior
     - Write tests first, then implement to make them pass
     - _Requirements: 2.3, 3.1, 3.2, 3.3, 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 7.1, 7.4_
 
-- [ ] 6.1 Write failing tests for basic rendering
+- [x] 6.1 Write failing tests for basic rendering
     - Test: Component renders todo text
     - Test: Component renders completion checkbox
     - Test: Component renders delete button
     - Run tests to verify they fail (Red phase)
     - _Requirements: 2.3, 4.1, 5.1_
 
-- [ ] 6.2 Implement basic TodoItem structure
+- [x] 6.2 Implement basic TodoItem structure
     - Create component with text, checkbox, and delete button
     - Add proper TypeScript types for props
     - Make rendering tests pass (Green phase)
     - _Requirements: 2.3, 4.1, 5.1_
 
-- [ ] 6.3 Write failing tests for completion toggle
+- [x] 6.3 Write failing tests for completion toggle
     - Test: Clicking checkbox calls onToggle with todo ID
     - Test: Completed todos show visual indicator
     - Test: Checkbox reflects completion status
     - Run tests to verify they fail (Red phase)
     - _Requirements: 2.3, 4.2_
 
-- [ ] 6.4 Implement completion toggle logic
+- [x] 6.4 Implement completion toggle logic
     - Add onChange handler for checkbox
     - Call onToggle prop with todo ID
     - Apply completed styles conditionally
     - Make completion tests pass (Green phase)
     - _Requirements: 2.3, 4.2_
 
-- [ ] 6.5 Write failing tests for delete functionality
+- [x] 6.5 Write failing tests for delete functionality
     - Test: Clicking delete button calls onDelete with todo ID
     - Test: Delete button is accessible
     - Run tests to verify they fail (Red phase)
     - _Requirements: 5.1, 5.2_
 
-- [ ] 6.6 Implement delete functionality
+- [x] 6.6 Implement delete functionality
     - Add onClick handler for delete button
     - Call onDelete prop with todo ID
     - Make delete tests pass (Green phase)
     - _Requirements: 5.1, 5.2_
 
-- [ ] 6.7 Write failing tests for inline editing mode
+- [x] 6.7 Write failing tests for inline editing mode
     - Test: Double-clicking todo text enters edit mode
     - Test: Edit mode shows input field with current text
     - Test: Edit mode hides normal view
     - Run tests to verify they fail (Red phase)
     - _Requirements: 3.1, 3.2_
 
-- [ ] 6.8 Implement inline editing mode
+- [x] 6.8 Implement inline editing mode
     - Add state for edit mode (isEditing)
     - Add onDoubleClick handler to enter edit mode
     - Conditionally render input or text based on mode
     - Make edit mode tests pass (Green phase)
     - _Requirements: 3.1, 3.2_
 
-- [ ] 6.9 Write failing tests for edit save behavior
+- [x] 6.9 Write failing tests for edit save behavior
     - Test: Pressing Enter saves edited text
     - Test: Edited text is trimmed
     - Test: Empty text is not saved
@@ -184,7 +184,7 @@
     - Run tests to verify they fail (Red phase)
     - _Requirements: 3.2, 3.3, 4.3_
 
-- [ ] 6.10 Implement edit save logic
+- [x] 6.10 Implement edit save logic
     - Add onKeyPress handler for Enter key
     - Call onUpdate prop with todo ID and new text
     - Validate text is not empty
@@ -192,49 +192,49 @@
     - Make save tests pass (Green phase)
     - _Requirements: 3.2, 3.3, 4.3_
 
-- [ ] 6.11 Write failing tests for edit cancel behavior
+- [x] 6.11 Write failing tests for edit cancel behavior
     - Test: Pressing Escape cancels edit
     - Test: Original text is restored on cancel
     - Test: Component exits edit mode on cancel
     - Run tests to verify they fail (Red phase)
     - _Requirements: 3.3_
 
-- [ ] 6.12 Implement edit cancel logic
+- [x] 6.12 Implement edit cancel logic
     - Add onKeyPress handler for Escape key
     - Restore original text
     - Exit edit mode without saving
     - Make cancel tests pass (Green phase)
     - _Requirements: 3.3_
 
-- [ ] 6.13 Write failing tests for keyboard navigation
+- [x] 6.13 Write failing tests for keyboard navigation
     - Test: Tab navigation works correctly
     - Test: Focus management in edit mode
     - Test: ARIA labels are present
     - Run tests to verify they fail (Red phase)
     - _Requirements: 7.4_
 
-- [ ] 6.14 Implement accessibility features
+- [x] 6.14 Implement accessibility features
     - Add proper ARIA labels
     - Manage focus states
     - Ensure keyboard navigation works
     - Make accessibility tests pass (Green phase)
     - _Requirements: 7.4_
 
-- [ ] 6.15 Refactor TodoItem for code quality
+- [x] 6.15 Refactor TodoItem for code quality
     - Extract edit logic into custom hook if needed
     - Improve variable naming
     - Add code comments
     - Ensure all tests still pass (Refactor phase)
     - _Requirements: 3.1, 3.2, 3.3, 4.1, 4.2, 4.3_
 
-- [ ] 6.16 Style TodoItem with Tailwind CSS
+- [x] 6.16 Style TodoItem with Tailwind CSS
     - Add responsive design styles
     - Style completed state with visual indicators
     - Style edit mode
     - Verify tests still pass after styling
     - _Requirements: 7.1, 4.4_
 
-- [ ] 6.17 Create Storybook stories for TodoItem
+- [x] 6.17 Create Storybook stories for TodoItem
     - Document normal state
     - Document completed state
     - Document editing state
