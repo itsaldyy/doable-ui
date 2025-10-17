@@ -221,6 +221,17 @@ setup_direnv_hook() {
         echo "$HOOK_LINE" >> "$SHELL_CONFIG"
         print_success "direnv hook added to $SHELL_CONFIG"
     fi
+
+    # Add DIRENV_LOG_FORMAT to silence verbose output
+    if grep -q "DIRENV_LOG_FORMAT" "$SHELL_CONFIG" 2>/dev/null; then
+        print_success "DIRENV_LOG_FORMAT already configured in $SHELL_CONFIG"
+    else
+        print_info "Configuring direnv to hide verbose messages..."
+        echo "" >> "$SHELL_CONFIG"
+        echo "# Silence direnv verbose output (show only our custom messages)" >> "$SHELL_CONFIG"
+        echo 'export DIRENV_LOG_FORMAT=""' >> "$SHELL_CONFIG"
+        print_success "DIRENV_LOG_FORMAT added to $SHELL_CONFIG"
+    fi
 }
 
 # Configure direnv to hide verbose output
@@ -350,15 +361,20 @@ main() {
 
     print_success "direnv is installed and configured"
     print_success "This project is allowed to use direnv"
+    print_success "Verbose direnv messages will be hidden"
 
+    echo ""
+    print_warning "IMPORTANT: You must reload your shell for changes to take effect!"
     echo ""
     print_info "Next steps:"
     echo "  1. Reload your shell: source $(get_shell_config)"
-    echo "  2. Or restart your terminal"
-    echo "  3. cd out and back into this directory to activate direnv"
+    echo "  2. Or restart your terminal (recommended)"
+    echo "  3. cd out and back into this directory to test"
     echo ""
-    print_info "Node.js version will now automatically switch to v$(cat .nvmrc 2>/dev/null || echo 'unknown')"
-    print_info "when you enter this project directory!"
+    print_info "After reloading, you'll see clean output:"
+    echo "  🔄 Node.js: vX.X.X → v$(cat .nvmrc 2>/dev/null || echo 'unknown') (project requires v$(cat .nvmrc 2>/dev/null || echo 'unknown'))"
+    echo ""
+    print_info "No more verbose 'direnv: loading' or 'direnv: export' messages!"
     echo ""
 
     # Offer to reload shell
