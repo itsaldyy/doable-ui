@@ -1,6 +1,6 @@
 /**
  * Unit tests for useLocalStorage hook
- * 
+ *
  * Tests cover:
  * - localStorage read/write operations
  * - Error handling for unavailable storage
@@ -10,7 +10,7 @@
  */
 
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 describe('useLocalStorage', () => {
     const TEST_KEY = 'test-key';
@@ -68,7 +68,9 @@ describe('useLocalStorage', () => {
             });
 
             expect(result.current.value).toEqual(newValue);
-            expect(localStorage.getItem(TEST_KEY)).toBe(JSON.stringify(newValue));
+            expect(localStorage.getItem(TEST_KEY)).toBe(
+                JSON.stringify(newValue)
+            );
         });
 
         it('should support functional updates', async () => {
@@ -103,7 +105,9 @@ describe('useLocalStorage', () => {
             };
 
             const { result } = renderHook(() =>
-                useLocalStorage(TEST_KEY, INITIAL_VALUE, { validate: validator })
+                useLocalStorage(TEST_KEY, INITIAL_VALUE, {
+                    validate: validator,
+                })
             );
 
             await waitFor(() => {
@@ -129,7 +133,9 @@ describe('useLocalStorage', () => {
             };
 
             const { result } = renderHook(() =>
-                useLocalStorage(TEST_KEY, INITIAL_VALUE, { validate: validator })
+                useLocalStorage(TEST_KEY, INITIAL_VALUE, {
+                    validate: validator,
+                })
             );
 
             await waitFor(() => {
@@ -267,7 +273,9 @@ describe('useLocalStorage', () => {
     describe('Cross-tab synchronization', () => {
         it('should sync changes from other tabs when enabled', async () => {
             const { result } = renderHook(() =>
-                useLocalStorage(TEST_KEY, INITIAL_VALUE, { syncAcrossTabs: true })
+                useLocalStorage(TEST_KEY, INITIAL_VALUE, {
+                    syncAcrossTabs: true,
+                })
             );
 
             await waitFor(() => {
@@ -294,7 +302,9 @@ describe('useLocalStorage', () => {
 
         it('should not sync when syncAcrossTabs is disabled', async () => {
             const { result } = renderHook(() =>
-                useLocalStorage(TEST_KEY, INITIAL_VALUE, { syncAcrossTabs: false })
+                useLocalStorage(TEST_KEY, INITIAL_VALUE, {
+                    syncAcrossTabs: false,
+                })
             );
 
             await waitFor(() => {
@@ -321,7 +331,9 @@ describe('useLocalStorage', () => {
 
         it('should ignore storage events for different keys', async () => {
             const { result } = renderHook(() =>
-                useLocalStorage(TEST_KEY, INITIAL_VALUE, { syncAcrossTabs: true })
+                useLocalStorage(TEST_KEY, INITIAL_VALUE, {
+                    syncAcrossTabs: true,
+                })
             );
 
             await waitFor(() => {
@@ -413,7 +425,9 @@ describe('useLocalStorage', () => {
             });
 
             expect(result.current.value).toEqual(newArray);
-            expect(JSON.parse(localStorage.getItem(TEST_KEY)!)).toEqual(newArray);
+            expect(JSON.parse(localStorage.getItem(TEST_KEY)!)).toEqual(
+                newArray
+            );
         });
 
         it('should handle nested objects', async () => {

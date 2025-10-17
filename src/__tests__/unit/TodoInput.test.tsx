@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { TodoInput } from './TodoInput';
+import { TodoInput } from '../../components/TodoInput';
 
 describe('TodoInput', () => {
     describe('Basic Rendering', () => {
@@ -90,10 +90,9 @@ describe('TodoInput', () => {
             const input = screen.getByRole('textbox') as HTMLInputElement;
 
             fireEvent.change(input, { target: { value: 'New task' } });
-            fireEvent.keyPress(input, {
+            fireEvent.keyDown(input, {
                 key: 'Enter',
                 code: 'Enter',
-                charCode: 13,
             });
 
             expect(onSubmit).toHaveBeenCalledWith('New task');
@@ -131,6 +130,91 @@ describe('TodoInput', () => {
             fireEvent.click(button);
 
             expect(onSubmit).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('Accessibility', () => {
+        it('should have proper ARIA label on input field', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const input = screen.getByRole('textbox');
+
+            expect(input).toHaveAttribute('aria-label', 'New todo input');
+        });
+
+        it('should have proper ARIA label on submit button', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const button = screen.getByRole('button', { name: /add todo/i });
+
+            expect(button).toHaveAttribute('aria-label', 'Add todo');
+        });
+
+        it('should set aria-invalid to true when validation error occurs', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const input = screen.getByRole('textbox') as HTMLInputElement;
+            const button = screen.getByRole('button', { name: /add/i });
+
+            fireEvent.click(button);
+
+            expect(input).toHaveAttribute('aria-invalid', 'true');
+        });
+
+        it('should set aria-invalid to false when no error', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const input = screen.getByRole('textbox') as HTMLInputElement;
+
+            expect(input).toHaveAttribute('aria-invalid', 'false');
+        });
+
+        it('should associate error message with input using aria-describedby', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const input = screen.getByRole('textbox') as HTMLInputElement;
+            const button = screen.getByRole('button', { name: /add/i });
+
+            fireEvent.click(button);
+
+            expect(input).toHaveAttribute(
+                'aria-describedby',
+                'todo-input-error'
+            );
+        });
+
+        it('should announce error message with alert role', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const button = screen.getByRole('button', { name: /add/i });
+
+            fireEvent.click(button);
+
+            const alert = screen.getByRole('alert');
+            expect(alert).toBeInTheDocument();
+            expect(alert).toHaveTextContent(/cannot be empty/i);
+        });
+
+        it('should remove aria-describedby when error is cleared', () => {
+            render(<TodoInput onSubmit={jest.fn()} />);
+            const input = screen.getByRole('textbox') as HTMLInputElement;
+            const button = screen.getByRole('button', { name: /add/i });
+
+            // Trigger error
+            fireEvent.click(button);
+            expect(input).toHaveAttribute(
+                'aria-describedby',
+                'todo-input-error'
+            );
+
+            // Clear error
+            fireEvent.change(input, { target: { value: 'Valid todo' } });
+            expect(input).not.toHaveAttribute('aria-describedby');
+        });
+
+        it('should be keyboard accessible via Enter key', () => {
+            const onSubmit = jest.fn();
+            render(<TodoInput onSubmit={onSubmit} />);
+            const input = screen.getByRole('textbox') as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: 'Keyboard task' } });
+            fireEvent.keyDown(input, { key: 'Enter' });
+
+            expect(onSubmit).toHaveBeenCalledWith('Keyboard task');
         });
     });
 });
