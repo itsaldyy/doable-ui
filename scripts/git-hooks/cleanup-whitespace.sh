@@ -35,6 +35,12 @@ while IFS= read -r file; do
     # This keeps at most 1 blank line between content
     awk 'BEGIN{blank=0} /^[[:space:]]*$/{blank++; if(blank<=1) print; next} {blank=0; print}' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
 
+    # Ensure file ends with a newline (POSIX standard)
+    # Check if last character is not a newline
+    if [ -n "$(tail -c 1 "$file" 2>/dev/null)" ]; then
+      echo "" >> "$file"
+    fi
+
     NEW_HASH=$(md5sum "$file" | cut -d' ' -f1)
 
     # If file was modified, re-stage it
