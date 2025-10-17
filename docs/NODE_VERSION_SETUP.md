@@ -279,6 +279,20 @@ cat scripts/setup-node-version-manager.sh
 
 All operations are transparent and logged to the console.
 
+## Troubleshooting
+
+Having issues? See the comprehensive troubleshooting guide:
+
+- [docs/TROUBLESHOOTING_NODE_VERSION.md](TROUBLESHOOTING_NODE_VERSION.md)
+
+Common issues covered:
+
+- `__vsc_prompt_cmd_original: command not found` (VS Code terminal)
+- direnv not working
+- Node version not switching
+- Permission errors
+- And many more...
+
 ## Further Reading
 
 - [nvm Documentation](https://github.com/nvm-sh/nvm)

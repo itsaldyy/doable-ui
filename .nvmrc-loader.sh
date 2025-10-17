@@ -2,6 +2,9 @@
 # Automatic Node version switching for this project
 # This script is sourced when entering the project directory
 
+# Preserve IDE terminal integration (VS Code, Kiro, etc.)
+_SAVED_PROMPT_COMMAND="$PROMPT_COMMAND"
+
 # Check if nvm is available
 if [ -s "$NVM_DIR/nvm.sh" ]; then
     # Load nvm if not already loaded
@@ -36,3 +39,9 @@ elif command -v node >/dev/null 2>&1; then
 else
     echo "⚠️  Node.js not found. Please install Node.js v$(cat .nvmrc 2>/dev/null || echo 'unknown')"
 fi
+
+# Restore PROMPT_COMMAND if it was cleared by nvm
+if [ -n "$_SAVED_PROMPT_COMMAND" ] && [ -z "$PROMPT_COMMAND" ]; then
+    export PROMPT_COMMAND="$_SAVED_PROMPT_COMMAND"
+fi
+unset _SAVED_PROMPT_COMMAND
