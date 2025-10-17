@@ -14,16 +14,20 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     if [ -f .nvmrc ]; then
         REQUIRED_VERSION=$(cat .nvmrc | tr -d '[:space:]')
         CURRENT_VERSION=$(node -v 2>/dev/null | sed 's/v//')
+        PREVIOUS_VERSION="v$CURRENT_VERSION"
 
         # Only switch if versions don't match
         if [ "$CURRENT_VERSION" != "$REQUIRED_VERSION" ]; then
-            echo "🔄 Switching to Node.js v$REQUIRED_VERSION (from .nvmrc)..."
-            nvm use
-
-            # Check if the version is installed
-            if [ $? -ne 0 ]; then
+            # Try to switch silently first
+            if nvm use --silent 2>/dev/null; then
+                NEW_VERSION=$(node -v 2>/dev/null)
+                echo "🔄 Node.js: $PREVIOUS_VERSION → $NEW_VERSION (project requires v$REQUIRED_VERSION)"
+            else
+                # Version not installed, need to install it
                 echo "📦 Node.js v$REQUIRED_VERSION not installed. Installing..."
-                nvm install
+                nvm install "$REQUIRED_VERSION"
+                NEW_VERSION=$(node -v 2>/dev/null)
+                echo "✅ Node.js: $PREVIOUS_VERSION → $NEW_VERSION (installed and activated)"
             fi
         fi
     fi

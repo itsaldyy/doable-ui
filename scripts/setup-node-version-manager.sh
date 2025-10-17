@@ -223,6 +223,33 @@ setup_direnv_hook() {
     fi
 }
 
+# Configure direnv to hide verbose output
+configure_direnv_output() {
+    print_header "Configuring direnv output"
+
+    DIRENV_CONFIG_DIR="$HOME/.config/direnv"
+    DIRENV_CONFIG_FILE="$DIRENV_CONFIG_DIR/direnv.toml"
+
+    # Create config directory if it doesn't exist
+    if [ ! -d "$DIRENV_CONFIG_DIR" ]; then
+        print_info "Creating direnv config directory..."
+        mkdir -p "$DIRENV_CONFIG_DIR"
+    fi
+
+    # Check if config already has hide_env_diff setting
+    if [ -f "$DIRENV_CONFIG_FILE" ] && grep -q "hide_env_diff" "$DIRENV_CONFIG_FILE" 2>/dev/null; then
+        print_success "direnv output already configured"
+    else
+        print_info "Configuring direnv to hide verbose output..."
+        cat > "$DIRENV_CONFIG_FILE" << 'DIRENV_EOF'
+[global]
+# Silence direnv output - we'll show our own informative messages
+hide_env_diff = true
+DIRENV_EOF
+        print_success "direnv configured for clean output"
+    fi
+}
+
 # Allow direnv for this project
 allow_direnv() {
     print_header "Allowing direnv for this project"
@@ -308,6 +335,9 @@ main() {
 
     # Setup direnv hook
     setup_direnv_hook
+
+    # Configure direnv output (hide verbose messages)
+    configure_direnv_output
 
     # Allow direnv for this project
     allow_direnv

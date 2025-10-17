@@ -21,6 +21,18 @@ bash scripts/setup-node-version-manager.sh
 - ✅ Safe to run multiple times (idempotent)
 - ✅ Provides helpful error messages and guidance
 
+**After setup, you'll see clean, informative messages:**
+
+```bash
+# When entering the project directory:
+🔄 Node.js: v16.19.1 → v20.19.5 (project requires v20.19.5)
+
+# When leaving the project directory:
+🔙 Node.js: v20.19.5 → v16.19.1 (left project directory)
+```
+
+**Note:** Verbose direnv messages are automatically hidden. You'll only see Node version changes.
+
 **Supported Systems:**
 
 - Ubuntu/Debian (apt)
@@ -135,8 +147,21 @@ nvm install
 ### `.envrc`
 
 - Configuration file for direnv
-- Automatically sources `.nvmrc-loader.sh` when entering the directory
+- Automatically loads Node.js version when entering the directory
+- Shows informative message about version switching
 - Requires `direnv allow` to be run once for security
+
+### `.envrc.leave`
+
+- Executed when leaving the project directory
+- Restores previous Node.js version
+- Shows informative message about version restoration
+
+### `~/.config/direnv/direnv.toml`
+
+- Global direnv configuration (created automatically)
+- Hides verbose direnv messages (`direnv: loading`, `direnv: export`, etc.)
+- Keeps terminal output clean and focused on Node version changes
 
 ## Troubleshooting
 

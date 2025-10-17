@@ -1,0 +1,32 @@
+# This file is executed when leaving the project directory
+# Used by direnv (https://direnv.net/)
+
+# Silence direnv's verbose output
+export DIRENV_LOG_FORMAT=""
+
+# Get the current Node version (from project)
+_PROJECT_NODE_VERSION=$(node -v 2>/dev/null || echo "unknown")
+
+# Try to restore to system default or previous version
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    source "$NVM_DIR/nvm.sh"
+
+    # Try to use system default, or the default alias, or latest installed
+    if nvm use system --silent 2>/dev/null; then
+        _RESTORED_VERSION=$(node -v 2>/dev/null)
+    elif nvm use default --silent 2>/dev/null; then
+        _RESTORED_VERSION=$(node -v 2>/dev/null)
+    else
+        # If no system/default, just note we're leaving
+        _RESTORED_VERSION="system default"
+    fi
+
+    # Show informative message
+    if [ "$_PROJECT_NODE_VERSION" != "$_RESTORED_VERSION" ]; then
+        echo "🔙 Node.js: $_PROJECT_NODE_VERSION → $_RESTORED_VERSION (left project directory)"
+    fi
+fi
+
+# Clean up
+unset _PROJECT_NODE_VERSION
+unset _RESTORED_VERSION
