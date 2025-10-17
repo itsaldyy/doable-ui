@@ -6,7 +6,18 @@
 set -e
 
 # Get the directory where this script is located
+# Use absolute path resolution to ensure it works from any context
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Fallback: if SCRIPT_DIR doesn't contain 'git-hooks', try to find it
+if [[ ! "$SCRIPT_DIR" =~ git-hooks ]]; then
+  # We're probably being called from the wrong context
+  # Try to find the git-hooks directory relative to the git root
+  GIT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+  if [ -n "$GIT_ROOT" ]; then
+    SCRIPT_DIR="$GIT_ROOT/scripts/git-hooks"
+  fi
+fi
 
 # Source utilities
 source "$SCRIPT_DIR/../utils/colors.sh"
