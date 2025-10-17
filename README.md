@@ -25,41 +25,32 @@ A modern, responsive to-do list application built with React, TypeScript, and Ta
 
 ### Automatic Node Version Switching (Recommended)
 
-This project includes automatic Node.js version switching via `.nvmrc`. To enable it:
+This project includes automatic Node.js version switching via `.nvmrc`.
 
-**Option 1: Per-Session (Manual)**
-
-```bash
-# Run this when you open a terminal in the project
-source .nvmrc-loader.sh
-```
-
-**Option 2: Automatic with direnv (Recommended)**
+**🚀 Quick Setup (Automated)**
 
 ```bash
-# Install direnv (one-time setup)
-# macOS: brew install direnv
-# Linux: sudo apt install direnv
-
-# Add to your shell config (~/.bashrc, ~/.zshrc, etc.)
-eval "$(direnv hook bash)"  # or zsh, fish, etc.
-
-# Allow direnv for this project (one-time)
-direnv allow
+# Run the automated setup script (detects your OS and configures everything)
+bash scripts/setup-node-version-manager.sh
 ```
 
-**Option 3: Manual nvm**
+This script will:
 
-```bash
-# Switch to the correct Node version manually
-nvm use
-```
+- ✅ Detect your operating system (Ubuntu, macOS, Fedora, Arch, etc.)
+- ✅ Install direnv if not present (with your permission)
+- ✅ Configure your shell (.bashrc, .zshrc, etc.)
+- ✅ Allow direnv for this project
+- ✅ Verify nvm and Node.js installation
+- ✅ Safe to run multiple times (idempotent)
 
-The `.nvmrc-loader.sh` script will:
+**Manual Setup Options**
 
-- ✅ Automatically switch to Node.js v20.19.5
-- ✅ Install the version if not present
-- ✅ Show helpful messages if nvm is not available
+If you prefer manual setup, see [docs/NODE_VERSION_SETUP.md](docs/NODE_VERSION_SETUP.md) for detailed instructions including:
+
+- Per-session manual loading
+- direnv manual installation
+- Standard nvm usage
+- Troubleshooting guide
 
 ### Installation
 

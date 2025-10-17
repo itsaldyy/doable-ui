@@ -2,6 +2,41 @@
 
 This project uses Node.js v20.19.5 (specified in `.nvmrc`). We provide multiple ways to automatically switch to the correct version when entering the project directory.
 
+## 🚀 Automated Setup (Recommended)
+
+The easiest way to get started is using our automated setup script:
+
+```bash
+bash scripts/setup-node-version-manager.sh
+```
+
+**What it does:**
+
+- ✅ Detects your OS (Ubuntu, Debian, Fedora, RHEL, CentOS, Arch, Manjaro, macOS)
+- ✅ Installs direnv using your system's package manager (with confirmation)
+- ✅ Configures your shell automatically (bash, zsh, fish)
+- ✅ Allows direnv for this project
+- ✅ Checks nvm and Node.js installation
+- ✅ Installs required Node version if missing
+- ✅ Safe to run multiple times (idempotent)
+- ✅ Provides helpful error messages and guidance
+
+**Supported Systems:**
+
+- Ubuntu/Debian (apt)
+- Fedora/RHEL/CentOS (dnf/yum)
+- Arch/Manjaro (pacman)
+- macOS (Homebrew or curl)
+- Generic Linux (curl fallback)
+
+After running the script, just reload your shell or restart your terminal, and Node.js will automatically switch when you enter the project!
+
+---
+
+## Manual Setup Options
+
+If you prefer to set things up manually or need more control, choose one of these options:
+
 ## Quick Start
 
 ### Option 1: direnv (Recommended - Fully Automatic)
@@ -194,6 +229,55 @@ In CI/CD environments, use the `.nvmrc` file directly:
 # GitLab CI example
 image: node:20.19.5
 ```
+
+## Automated Setup Script Details
+
+### What the Script Does
+
+The `scripts/setup-node-version-manager.sh` script provides a comprehensive, safe setup process:
+
+1. **OS Detection**: Automatically detects your operating system and version
+2. **direnv Installation**: Installs direnv using your system's native package manager
+3. **Shell Configuration**: Adds direnv hook to your shell config file (.bashrc, .zshrc, etc.)
+4. **Project Authorization**: Runs `direnv allow` for this project
+5. **nvm Verification**: Checks if nvm is installed and working
+6. **Node Installation**: Installs the required Node.js version if missing
+
+### Safety Features
+
+- ✅ **Idempotent**: Safe to run multiple times without side effects
+- ✅ **Confirmation Prompts**: Asks before installing or modifying system
+- ✅ **Error Handling**: Gracefully handles errors with helpful messages
+- ✅ **Non-Destructive**: Only adds to config files, never removes
+- ✅ **Rollback Friendly**: All changes are clearly marked in config files
+
+### Supported Package Managers
+
+- **apt-get** (Ubuntu, Debian)
+- **dnf** (Fedora, RHEL 8+)
+- **yum** (CentOS, RHEL 7)
+- **pacman** (Arch, Manjaro)
+- **brew** (macOS)
+- **curl** (Generic fallback)
+
+### Script Output
+
+The script provides color-coded output:
+
+- 🟢 **Green checkmarks**: Successful operations
+- 🔵 **Blue info**: Informational messages
+- 🟡 **Yellow warnings**: Non-critical issues
+- 🔴 **Red errors**: Critical problems requiring attention
+
+### Manual Inspection
+
+You can review the script before running:
+
+```bash
+cat scripts/setup-node-version-manager.sh
+```
+
+All operations are transparent and logged to the console.
 
 ## Further Reading
 
