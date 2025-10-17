@@ -38,50 +38,50 @@
     - Test error handling and loading states
     - _Requirements: 1.1, 1.4, 2.4, 3.4, 4.4, 5.3, 6.1_
 
-- [ ]   5. Build TodoInput component (TDD)
+- [x]   5. Build TodoInput component (TDD)
     - Follow Red-Green-Refactor cycle for each behavior
     - Write tests first, then implement to make them pass
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 7.1, 7.2_
 
-- [ ] 5.1 Write failing tests for basic rendering
+- [x] 5.1 Write failing tests for basic rendering
     - Test: Component renders input field
     - Test: Component renders submit button
     - Run tests to verify they fail (Red phase)
     - _Requirements: 1.1, 7.1_
 
-- [ ] 5.2 Implement basic TodoInput structure
+- [x] 5.2 Implement basic TodoInput structure
     - Create component with input and button elements
     - Add proper TypeScript types for props
     - Make rendering tests pass (Green phase)
     - _Requirements: 1.1, 7.1_
 
-- [ ] 5.3 Write failing tests for text input handling
+- [x] 5.3 Write failing tests for text input handling
     - Test: Input value updates on change
     - Test: Input accepts text correctly
     - Run tests to verify they fail (Red phase)
     - _Requirements: 1.1, 1.2_
 
-- [ ] 5.4 Implement text input state management
+- [x] 5.4 Implement text input state management
     - Add useState for input value
     - Add onChange handler
     - Make input handling tests pass (Green phase)
     - _Requirements: 1.1, 1.2_
 
-- [ ] 5.5 Write failing tests for validation
+- [x] 5.5 Write failing tests for validation
     - Test: Empty input shows validation error
     - Test: Valid input clears error message
     - Test: Whitespace-only input is treated as empty
     - Run tests to verify they fail (Red phase)
     - _Requirements: 1.2, 1.3_
 
-- [ ] 5.6 Implement validation logic
+- [x] 5.6 Implement validation logic
     - Add validation function for empty/whitespace input
     - Add error state management
     - Display error messages conditionally
     - Make validation tests pass (Green phase)
     - _Requirements: 1.2, 1.3_
 
-- [ ] 5.7 Write failing tests for submission behavior
+- [x] 5.7 Write failing tests for submission behavior
     - Test: Enter key submits valid input
     - Test: Button click submits valid input
     - Test: Input clears after successful submission
@@ -89,7 +89,7 @@
     - Run tests to verify they fail (Red phase)
     - _Requirements: 1.1, 1.4_
 
-- [ ] 5.8 Implement submission logic
+- [x] 5.8 Implement submission logic
     - Add onKeyPress handler for Enter key
     - Add onClick handler for button
     - Call onSubmit prop with trimmed value
@@ -97,21 +97,21 @@
     - Make submission tests pass (Green phase)
     - _Requirements: 1.1, 1.4_
 
-- [ ] 5.9 Refactor TodoInput for code quality
+- [x] 5.9 Refactor TodoInput for code quality
     - Extract validation logic if needed
     - Improve variable naming
     - Add code comments
     - Ensure all tests still pass (Refactor phase)
     - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-- [ ] 5.10 Style TodoInput with Tailwind CSS
+- [x] 5.10 Style TodoInput with Tailwind CSS
     - Add responsive design styles
     - Style input, button, and error messages
     - Ensure accessibility (ARIA labels, focus states)
     - Verify tests still pass after styling
     - _Requirements: 7.1, 7.2_
 
-- [ ] 5.11 Create Storybook stories for TodoInput
+- [x] 5.11 Create Storybook stories for TodoInput
     - Document empty state
     - Document state with text
     - Document error state
