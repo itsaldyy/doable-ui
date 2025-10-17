@@ -1,5 +1,5 @@
 ---
-title: Git Commands Best Practices
+title: Agentic Git Commands Best Practices
 inclusion: always
 ---
 
