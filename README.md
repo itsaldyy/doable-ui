@@ -165,9 +165,9 @@ This project follows [Conventional Commits](https://www.conventionalcommits.org/
 **Examples:**
 
 ```bash
-feat(hooks): add commit message validation
-fix: resolve Node version switching issue
-docs(api): update authentication guide
+feat(hooks): Add commit message validation
+fix: Resolve Node version switching issue
+docs(api): Update authentication guide
 ```
 
 See [docs/COMMIT_MESSAGE_CONVENTION.md](docs/COMMIT_MESSAGE_CONVENTION.md) for detailed guidelines.

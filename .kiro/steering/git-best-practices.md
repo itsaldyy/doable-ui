@@ -7,11 +7,11 @@ inclusion: always
 
 ## Commit Messages
 
-- Use conventional commit format: `type(scope): subject`
+- Use conventional commit format: `type(scope): Subject`
 - Types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert
 - Scope is optional but recommended: hooks, spec, steering, docs, api, ui, etc.
-- Subject must be lowercase, no period at end, max 72 characters
-- Use imperative mood ("add feature" not "added feature")
+- Subject must start with uppercase letter (Sentence case), no period at end, max 72 characters
+- Use imperative mood ("Add feature" not "Added feature")
 - Include body for complex changes (explain why, not how)
 - Reference issues in footer: `Fixes #123`, `Closes #456`
 - Commit messages are automatically validated by commit-msg hook

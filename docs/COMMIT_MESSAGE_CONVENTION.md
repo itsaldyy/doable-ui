@@ -47,8 +47,8 @@ You can use any scope that makes sense for your change.
 
 The subject is a brief description of the change:
 
-- Use imperative mood: "add" not "added" or "adds"
-- Start with lowercase letter
+- Use imperative mood: "Add" not "Added" or "Adds"
+- Start with uppercase letter (Sentence case)
 - No period at the end
 - Maximum 72 characters
 - Be concise but descriptive
@@ -75,19 +75,19 @@ The footer contains metadata:
 ### Simple commit
 
 ```
-feat: add user authentication
+feat: Add user authentication
 ```
 
 ### With scope
 
 ```
-feat(hooks): add commit message validation
+feat(hooks): Add commit message validation
 ```
 
 ### With body
 
 ```
-fix(spec): resolve Node version switching issue
+fix(spec): Resolve Node version switching issue
 
 The direnv configuration was not being loaded in new terminal
 sessions. Added DIRENV_LOG_FORMAT to shell config and updated
@@ -97,7 +97,7 @@ documentation to emphasize the need to reload the shell.
 ### With breaking change
 
 ```
-feat(api): change authentication endpoint
+feat(api): Change authentication endpoint
 
 BREAKING CHANGE: The /auth endpoint now requires a token parameter.
 Update all API calls to include the token.
@@ -108,7 +108,7 @@ Fixes #123
 ### Multiple scopes
 
 ```
-refactor(hooks,docs): improve pre-commit workflow
+refactor(hooks,docs): Improve pre-commit workflow
 
 - Reorganize hook scripts for better maintainability
 - Update documentation with new workflow
@@ -120,38 +120,38 @@ refactor(hooks,docs): improve pre-commit workflow
 ### Feature additions
 
 ```
-feat(hooks): add commit message validation
-feat: add automatic Node.js version switching
-feat(vite): enable automatic browser opening on server start
+feat(hooks): Add commit message validation
+feat: Add automatic Node.js version switching
+feat(vite): Enable automatic browser opening on server start
 ```
 
 ### Bug fixes
 
 ```
-fix: resolve VS Code PROMPT_COMMAND error with direnv
-fix(hooks): add robust path resolution to pre-commit orchestrator
-fix: ensure DIRENV_LOG_FORMAT is added to shell config
+fix: Resolve VS Code PROMPT_COMMAND error with direnv
+fix(hooks): Add robust path resolution to pre-commit orchestrator
+fix: Ensure DIRENV_LOG_FORMAT is added to shell config
 ```
 
 ### Documentation
 
 ```
-docs: complete TDD enforcement restructuring knowledge transfer document
-docs(steering): add Git commands best practices for agent
-docs(hooks): add comprehensive Git hooks documentation
+docs: Complete TDD enforcement restructuring knowledge transfer document
+docs(steering): Add Git commands best practices for agent
+docs(hooks): Add comprehensive Git hooks documentation
 ```
 
 ### Refactoring
 
 ```
-refactor(spec): restructure tasks to follow Test-Driven Development
-refactor(steering): rename git-commands.md to agentic-git-best-practices.md
+refactor(spec): Restructure tasks to follow Test-Driven Development
+refactor(steering): Rename git-commands.md to agentic-git-best-practices.md
 ```
 
 ### Chores
 
 ```
-chore(hooks): clean up whitespace and normalize file permissions
+chore(hooks): Clean up whitespace and normalize file permissions
 ```
 
 ## Validation
@@ -190,15 +190,15 @@ git commit --no-verify -m "your message"
 ### Common Mistakes
 
 ❌ `Fixed bug` - Missing type and colon
-❌ `feat: Added new feature` - Subject should be lowercase
-❌ `fix: resolve issue.` - Subject shouldn't end with period
+❌ `feat: added new feature` - Subject should start with uppercase and use imperative mood
+❌ `fix: Resolve issue.` - Subject shouldn't end with period
 ❌ `update code` - Missing type
-❌ `feat(HOOKS): add validation` - Scope should be lowercase
+❌ `feat(HOOKS): Add validation` - Scope should be lowercase
 
-✅ `fix: resolve login timeout`
-✅ `feat(hooks): add commit message validation`
-✅ `docs: update API documentation`
-✅ `refactor: simplify authentication logic`
+✅ `fix: Resolve login timeout`
+✅ `feat(hooks): Add commit message validation`
+✅ `docs: Update API documentation`
+✅ `refactor: Simplify authentication logic`
 
 ## Benefits
 

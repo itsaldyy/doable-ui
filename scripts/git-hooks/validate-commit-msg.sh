@@ -16,12 +16,12 @@ COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 # Subject: brief description, lowercase, no period at end
 #
 # Examples:
-#   feat(hooks): add commit message validation
-#   fix: resolve Node version switching issue
-#   docs(api): update authentication guide
-#   refactor(spec): restructure tasks for TDD
+#   feat(hooks): Add commit message validation
+#   fix: Resolve Node version switching issue
+#   docs(api): Update authentication guide
+#   refactor(spec): Restructure tasks for TDD
 
-PATTERN="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\([a-z0-9-]+\))?: .{1,72}$"
+PATTERN="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\([a-z0-9-]+\))?: [A-Z].{0,71}$"
 
 # Allow merge commits
 if echo "$COMMIT_MSG" | grep -qE "^Merge "; then
@@ -63,16 +63,16 @@ if ! echo "$FIRST_LINE" | grep -qE "$PATTERN"; then
     echo "  hooks, spec, steering, docs, api, etc."
     echo ""
     echo "${BLUE}Examples:${NC}"
-    echo "  ${GREEN}feat(hooks): add commit message validation${NC}"
-    echo "  ${GREEN}fix: resolve Node version switching issue${NC}"
-    echo "  ${GREEN}docs(api): update authentication guide${NC}"
-    echo "  ${GREEN}refactor(spec): restructure tasks for TDD${NC}"
+    echo "  ${GREEN}feat(hooks): Add commit message validation${NC}"
+    echo "  ${GREEN}fix: Resolve Node version switching issue${NC}"
+    echo "  ${GREEN}docs(api): Update authentication guide${NC}"
+    echo "  ${GREEN}refactor(spec): Restructure tasks for TDD${NC}"
     echo ""
     echo "${BLUE}Rules:${NC}"
-    echo "  • Subject must be lowercase"
+    echo "  • Subject must start with uppercase letter (Sentence case)"
     echo "  • Subject must be 1-72 characters"
     echo "  • No period at the end of subject"
-    echo "  • Use imperative mood (add, not added)"
+    echo "  • Use imperative mood (Add, not Added)"
     echo ""
     exit 1
 fi
@@ -88,14 +88,16 @@ if [ $SUBJECT_LENGTH -gt 72 ]; then
     echo ""
 fi
 
-# Check if subject starts with uppercase (should be lowercase)
+# Extract subject from commit message
 SUBJECT=$(echo "$FIRST_LINE" | sed -E 's/^[a-z]+(\([a-z0-9-]+\))?: //')
-if echo "$SUBJECT" | grep -qE "^[A-Z]"; then
+
+# Check if subject starts with lowercase (should be uppercase/Sentence case)
+if echo "$SUBJECT" | grep -qE "^[a-z]"; then
     echo ""
-    echo "${YELLOW}⚠ Warning: Subject should start with lowercase${NC}"
+    echo "${YELLOW}⚠ Warning: Subject should start with uppercase letter (Sentence case)${NC}"
     echo ""
     echo "Your subject: $SUBJECT"
-    echo "Should be: $(echo "$SUBJECT" | sed 's/^./\L&/')"
+    echo "Should be: $(echo "$SUBJECT" | sed 's/^./\U&/')"
     echo ""
 fi
 
