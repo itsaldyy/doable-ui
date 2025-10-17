@@ -269,64 +269,64 @@
     - Document messaging
     - _Requirements: 2.2_
 
-- [ ]   8. Build TodoList container component (TDD)
+- [x]   8. Build TodoList container component (TDD)
     - Follow Red-Green-Refactor cycle for each behavior
     - Write tests first, then implement to make them pass
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 7.1_
 
-- [ ] 8.1 Write failing tests for empty state
+- [x] 8.1 Write failing tests for empty state
     - Test: Shows EmptyState when todos array is empty
     - Test: Does not show EmptyState when todos exist
     - Run tests to verify they fail (Red phase)
     - _Requirements: 2.2_
 
-- [ ] 8.2 Implement empty state logic
+- [x] 8.2 Implement empty state logic
     - Conditionally render EmptyState component
     - Check if todos array is empty
     - Make empty state tests pass (Green phase)
     - _Requirements: 2.2_
 
-- [ ] 8.3 Write failing tests for todo list rendering
+- [x] 8.3 Write failing tests for todo list rendering
     - Test: Renders TodoItem for each todo
     - Test: Renders correct number of TodoItems
     - Test: Passes correct props to each TodoItem
     - Run tests to verify they fail (Red phase)
     - _Requirements: 2.1, 2.3_
 
-- [ ] 8.4 Implement todo list rendering
+- [x] 8.4 Implement todo list rendering
     - Map over todos array
     - Render TodoItem for each todo
     - Pass todo data and callbacks as props
     - Make list rendering tests pass (Green phase)
     - _Requirements: 2.1, 2.3_
 
-- [ ] 8.5 Write failing tests for todo operations
+- [x] 8.5 Write failing tests for todo operations
     - Test: onToggle callback is passed correctly
     - Test: onUpdate callback is passed correctly
     - Test: onDelete callback is passed correctly
     - Run tests to verify they fail (Red phase)
     - _Requirements: 2.3, 2.4_
 
-- [ ] 8.6 Implement todo operation callbacks
+- [x] 8.6 Implement todo operation callbacks
     - Pass onToggle, onUpdate, onDelete to TodoItems
     - Ensure callbacks receive correct todo IDs
     - Make operation tests pass (Green phase)
     - _Requirements: 2.3, 2.4_
 
-- [ ] 8.7 Refactor TodoList for code quality
+- [x] 8.7 Refactor TodoList for code quality
     - Extract list item rendering if needed
     - Improve variable naming
     - Add code comments
     - Ensure all tests still pass (Refactor phase)
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
 
-- [ ] 8.8 Style TodoList with responsive layout
+- [x] 8.8 Style TodoList with responsive layout
     - Implement responsive grid/list layout
     - Add proper spacing between items
     - Verify tests still pass after styling
     - _Requirements: 7.1_
 
-- [ ] 8.9 Create Storybook stories for TodoList
+- [x] 8.9 Create Storybook stories for TodoList
     - Document empty state
     - Document populated list with few items
     - Document populated list with many items
