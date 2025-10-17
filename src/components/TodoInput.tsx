@@ -50,9 +50,9 @@ export function TodoInput({ onSubmit }: TodoInputProps): JSX.Element {
     };
 
     /**
-     * Handles Enter key press for submission
+     * Handles Enter key down for submission
      */
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         if (e.key === 'Enter') {
             handleSubmit();
         }
@@ -65,7 +65,7 @@ export function TodoInput({ onSubmit }: TodoInputProps): JSX.Element {
                     type="text"
                     value={value}
                     onChange={handleChange}
-                    onKeyPress={handleKeyPress}
+                    onKeyDown={handleKeyDown}
                     placeholder="What needs to be done?"
                     aria-label="New todo input"
                     aria-invalid={!!error}
