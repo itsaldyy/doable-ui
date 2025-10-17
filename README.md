@@ -19,8 +19,47 @@ A modern, responsive to-do list application built with React, TypeScript, and Ta
 
 - Node.js v20.19.5 or higher
 - npm v10.8.2 or higher
+- [nvm](https://github.com/nvm-sh/nvm) (recommended for automatic version switching)
 
 ## Getting Started
+
+### Automatic Node Version Switching (Recommended)
+
+This project includes automatic Node.js version switching via `.nvmrc`. To enable it:
+
+**Option 1: Per-Session (Manual)**
+
+```bash
+# Run this when you open a terminal in the project
+source .nvmrc-loader.sh
+```
+
+**Option 2: Automatic with direnv (Recommended)**
+
+```bash
+# Install direnv (one-time setup)
+# macOS: brew install direnv
+# Linux: sudo apt install direnv
+
+# Add to your shell config (~/.bashrc, ~/.zshrc, etc.)
+eval "$(direnv hook bash)"  # or zsh, fish, etc.
+
+# Allow direnv for this project (one-time)
+direnv allow
+```
+
+**Option 3: Manual nvm**
+
+```bash
+# Switch to the correct Node version manually
+nvm use
+```
+
+The `.nvmrc-loader.sh` script will:
+
+- ✅ Automatically switch to Node.js v20.19.5
+- ✅ Install the version if not present
+- ✅ Show helpful messages if nvm is not available
 
 ### Installation
 
