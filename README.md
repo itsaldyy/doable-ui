@@ -153,3 +153,23 @@ src/
 - Responsive design for mobile and desktop
 - Accessible UI with keyboard navigation
 - Comprehensive test coverage
+
+## Contributing
+
+### Commit Message Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+**Format:** `type(scope): subject`
+
+**Examples:**
+
+```bash
+feat(hooks): add commit message validation
+fix: resolve Node version switching issue
+docs(api): update authentication guide
+```
+
+See [docs/COMMIT_MESSAGE_CONVENTION.md](docs/COMMIT_MESSAGE_CONVENTION.md) for detailed guidelines.
+
+**Commit messages are automatically validated** by a commit-msg hook. Invalid messages will be rejected with helpful guidance.
