@@ -79,7 +79,7 @@ export function TodoItem({
     // Render edit mode
     if (isEditing) {
         return (
-            <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+            <div className="flex items-center gap-3 p-4 bg-yellow-50 rounded-lg shadow-sm border border-yellow-300">
                 <input
                     ref={editInputRef}
                     type="text"
@@ -87,7 +87,7 @@ export function TodoItem({
                     onChange={(e) => setEditText(e.target.value)}
                     onKeyDown={handleKeyDown}
                     aria-label="Edit todo text"
-                    className="flex-1 px-3 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 px-3 py-2 border border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                 />
             </div>
         );
@@ -95,13 +95,13 @@ export function TodoItem({
 
     // Render normal view mode
     return (
-        <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+        <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all">
             <input
                 type="checkbox"
                 checked={todo.completed}
                 onChange={handleToggleComplete}
                 aria-label={`Mark "${todo.text}" as ${todo.completed ? 'incomplete' : 'complete'}`}
-                className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-400 cursor-pointer"
             />
             <span
                 className={`flex-1 text-gray-800 cursor-pointer select-none ${
@@ -114,7 +114,7 @@ export function TodoItem({
             <button
                 aria-label="Delete todo"
                 onClick={handleDelete}
-                className="px-3 py-1 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="px-3 py-1 text-sm text-orange-600 hover:text-orange-700 hover:bg-orange-50 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400"
             >
                 Delete
             </button>

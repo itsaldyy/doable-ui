@@ -53,18 +53,21 @@ export function TodoApp(): JSX.Element {
     const shouldShowError = error && !dismissedError;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 py-8 px-4">
             <div className="max-w-3xl mx-auto">
                 <header className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-gray-800 mb-2">
+                    <h1 className="text-4xl font-bold text-blue-600 mb-2">
                         My Todo List
                     </h1>
-                    <p className="text-gray-600">
-                        Stay organized and productive
+                    <p className="text-gray-700">
+                        The world-class To Do app of your life
                     </p>
                 </header>
 
-                <main className="bg-white rounded-xl shadow-lg p-6 space-y-6">
+                <main
+                    className="bg-white rounded-xl shadow-lg p-6 space-y-6"
+                    aria-label="Todo list application"
+                >
                     {/* Error Message */}
                     {shouldShowError && (
                         <ErrorMessage
@@ -76,10 +79,17 @@ export function TodoApp(): JSX.Element {
 
                     {/* Loading State */}
                     {isLoading ? (
-                        <div className="flex items-center justify-center py-12">
+                        <div
+                            className="flex items-center justify-center py-12"
+                            role="status"
+                            aria-live="polite"
+                        >
                             <div className="text-center">
-                                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
-                                <p className="text-gray-600">
+                                <div
+                                    className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"
+                                    aria-hidden="true"
+                                ></div>
+                                <p className="text-gray-700">
                                     Loading your todos...
                                 </p>
                             </div>
