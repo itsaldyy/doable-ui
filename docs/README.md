@@ -65,10 +65,11 @@ docs/
     - AWS Amplify Hosting
     - Cost analysis and security best practices
 
-### 💻 Development Process (2 docs)
+### 💻 Development Process (3 docs)
 
 - [Commit Message Convention](knowledge-transfer/development-process/commit-message-convention.md) - Git standards
 - [Error Reporting Enhancement](knowledge-transfer/development-process/error-reporting-enhancement.md) - Error handling patterns
+- [Custom SVG Icon Implementation](knowledge-transfer/development-process/custom-svg-icon-implementation.md) - SVG icons with vite-plugin-svgr
 
 ### ⚙️ Setup (4 docs)
 
@@ -94,9 +95,11 @@ Complete implementation documentation for all features:
 - [Test Reorganization](knowledge-transfer/testing/test-reorganization.md) - Test structure
 - [Testing Strategy Assessment](knowledge-transfer/testing/testing-strategy-assessment.md) - Evaluation
 
-### 🔧 Troubleshooting (1 doc)
+### 🔧 Troubleshooting (3 docs)
 
 - [Node Version Management](knowledge-transfer/troubleshooting/troubleshooting-node-version-management.md) - Fixing Node.js issues
+- [Pre-commit Hook SCRIPT_DIR Fix](knowledge-transfer/troubleshooting/pre-commit-script-dir-fix.md) - Git hook variable preservation
+- [Jest SVG Import Fix](knowledge-transfer/troubleshooting/jest-svg-import-fix.md) - Mocking SVG imports in tests
 
 ## Common Use Cases
 
@@ -170,10 +173,10 @@ All documents follow the **"docs-as-you-go"** methodology with consistent struct
 
 ## Documentation Stats
 
-- **Total Documents:** 33
+- **Total Documents:** 36
 - **Categories:** 7
-- **Total Pages:** ~200+ pages
-- **Code Examples:** 100+
+- **Total Pages:** ~250+ pages
+- **Code Examples:** 120+
 - **Diagrams:** 15+
 
 ## Contributing
