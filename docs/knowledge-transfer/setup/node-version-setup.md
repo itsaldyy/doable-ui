@@ -88,7 +88,7 @@ If you prefer to set things up manually or need more control, choose one of thes
 
 4. **Allow direnv for this project:**
     ```bash
-    cd /path/to/to-do-react-ts
+    cd /path/to/doable-ui
     direnv allow
     ```
 
@@ -221,7 +221,7 @@ After setup, verify it's working:
 
 ```bash
 # Leave and re-enter the project directory
-cd .. && cd to-do-react-ts
+cd .. && cd doable-ui
 
 # Check Node version
 node -v
