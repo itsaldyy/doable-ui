@@ -55,12 +55,6 @@ export function TodoApp(): JSX.Element {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 py-8 px-4">
-            <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
-            >
-                Skip to main content
-            </a>
             <div className="max-w-3xl mx-auto">
                 <header className="text-center mb-8">
                     <a
@@ -80,19 +74,16 @@ export function TodoApp(): JSX.Element {
                 </header>
 
                 <main
-                    id="main-content"
                     className="bg-white rounded-xl shadow-lg p-6 space-y-6"
                     aria-label="Todo list application"
                 >
                     {/* Error Message */}
                     {shouldShowError && (
-                        <div aria-live="assertive" aria-atomic="true">
-                            <ErrorMessage
-                                message={error}
-                                type={getErrorType(error)}
-                                onDismiss={handleDismissError}
-                            />
-                        </div>
+                        <ErrorMessage
+                            message={error}
+                            type={getErrorType(error)}
+                            onDismiss={handleDismissError}
+                        />
                     )}
 
                     {/* Loading State */}
