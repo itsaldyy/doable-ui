@@ -57,7 +57,20 @@ for check in "${CHECKS[@]}"; do
 
   log_step "Running: $description"
 
-  if bash "$SCRIPT_DIR/$script"; then
+  # Full path to the script
+  SCRIPT_PATH="$SCRIPT_DIR/$script"
+  
+  # Debug: show what we're trying to run
+  if [ ! -f "$SCRIPT_PATH" ]; then
+    log_error "Script not found: $SCRIPT_PATH"
+    if [ "$required" = "1" ]; then
+      FAILED_CHECKS+=("$description")
+      FAILED=1
+    fi
+    continue
+  fi
+
+  if bash "$SCRIPT_PATH"; then
     log_success "$description passed"
   else
     EXIT_CODE=$?
