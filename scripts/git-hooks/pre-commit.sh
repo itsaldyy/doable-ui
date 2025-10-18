@@ -19,10 +19,18 @@ if [[ ! "$SCRIPT_DIR" =~ git-hooks ]]; then
   fi
 fi
 
-# Source utilities
-source "$SCRIPT_DIR/../utils/colors.sh"
-source "$SCRIPT_DIR/../utils/logging.sh"
+# Save SCRIPT_DIR before sourcing utilities (they may overwrite it)
+SAVED_SCRIPT_DIR=$SCRIPT_DIR
+UTIL_DIR="$SCRIPT_DIR/../utils"
 
+# Source utilities
+source "$UTIL_DIR/colors.sh"
+source "$UTIL_DIR/logging.sh"
+
+# Load saved SCRIPT_DIR
+SCRIPT_DIR=$SAVED_SCRIPT_DIR
+
+# Restore SCRIPT_DIR after sourcing
 log_header "Pre-commit Checks"
 
 # Track if any check fails
@@ -59,7 +67,7 @@ for check in "${CHECKS[@]}"; do
 
   # Full path to the script
   SCRIPT_PATH="$SCRIPT_DIR/$script"
-  
+
   # Debug: show what we're trying to run
   if [ ! -f "$SCRIPT_PATH" ]; then
     log_error "Script not found: $SCRIPT_PATH"
