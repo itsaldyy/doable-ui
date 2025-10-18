@@ -1,0 +1,2 @@
+# Validate commit message format
+bash scripts/git-hooks/validate-commit-msg.sh "$1"
