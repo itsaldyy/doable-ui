@@ -81,15 +81,17 @@ knowledge-transfer/
 
 ---
 
-### 💻 Development Process (2 docs)
+### 💻 Development Process (3 docs)
 
 - **[Commit Message Convention](./development-process/commit-message-convention.md)** - Git commit standards
 - **[Error Reporting Enhancement](./development-process/error-reporting-enhancement.md)** - Error handling patterns
+- **[Custom SVG Icon Implementation](./development-process/custom-svg-icon-implementation.md)** - SVG icons with vite-plugin-svgr
 
 **When to read:**
 
 - Writing commit messages
 - Implementing error handling
+- Adding custom icons or SVG assets
 - Contributing to the project
 
 ---
@@ -152,13 +154,17 @@ knowledge-transfer/
 
 ---
 
-### 🔧 Troubleshooting (1 doc)
+### 🔧 Troubleshooting (3 docs)
 
 - **[Node Version Management](./troubleshooting/troubleshooting-node-version-management.md)** - Fixing Node.js version issues
+- **[Pre-commit Hook SCRIPT_DIR Fix](./troubleshooting/pre-commit-script-dir-fix.md)** - Git hook variable preservation
+- **[Jest SVG Import Fix](./troubleshooting/jest-svg-import-fix.md)** - Mocking SVG imports in tests
 
 **When to read:**
 
 - Encountering Node.js errors
+- Git hooks failing in IDE
+- Jest tests failing with module resolution errors
 - Version compatibility issues
 - Environment setup problems
 
@@ -183,8 +189,17 @@ knowledge-transfer/
 **...understand the color system:**
 → Read [Color Palette](./architecture/color-palette.md)
 
+**...add custom SVG icons:**
+→ Read [Custom SVG Icon Implementation](./development-process/custom-svg-icon-implementation.md)
+
 **...implement accessible components:**
 → Read [TodoInput Accessibility Audit](./architecture/todoinput-accessibility-audit.md)
+
+**...fix Git hook issues:**
+→ Read [Pre-commit Hook SCRIPT_DIR Fix](./troubleshooting/pre-commit-script-dir-fix.md)
+
+**...fix Jest SVG import errors:**
+→ Read [Jest SVG Import Fix](./troubleshooting/jest-svg-import-fix.md)
 
 **...set up my development environment:**
 → Check [Setup folder](./setup/)
@@ -216,8 +231,10 @@ All documents follow the **"docs-as-you-go"** methodology with consistent struct
 ### By Topic
 
 - **CSS/Styling:** `architecture/css-*`, `architecture/color-palette`
+- **SVG/Icons:** `development-process/custom-svg-icon-implementation`
 - **Deployment:** `deployment/aws-*`
-- **Testing:** `testing/testing-*`, `testing/tdd-*`
+- **Testing:** `testing/testing-*`, `testing/tdd-*`, `troubleshooting/jest-svg-import-fix`
+- **Git Hooks:** `troubleshooting/pre-commit-script-dir-fix`
 - **Setup:** `setup/*`
 - **Components:** `tasks/task-*-component`
 
@@ -233,28 +250,30 @@ All documents follow the **"docs-as-you-go"** methodology with consistent struct
 
 - **CSS not working:** `architecture/css-versioning-compatibility-lessons`
 - **Node version issues:** `troubleshooting/troubleshooting-node-version-management`
+- **Git hooks failing:** `troubleshooting/pre-commit-script-dir-fix`
+- **Jest SVG errors:** `troubleshooting/jest-svg-import-fix`
 - **Test organization:** `testing/test-reorganization`
-- **Git hooks:** `setup/git-hooks-setup`
+- **Git hooks setup:** `setup/git-hooks-setup`
 
 ---
 
 ## 📊 Documentation Stats
 
-- **Total Documents:** 33
+- **Total Documents:** 36
 - **Categories:** 7
-- **Total Pages:** ~200+ pages
-- **Code Examples:** 100+
+- **Total Pages:** ~250+ pages
+- **Code Examples:** 120+
 - **Diagrams:** 15+
 
 ### By Category
 
 - Architecture: 5 docs
 - Deployment: 1 doc
-- Development Process: 2 docs
+- Development Process: 3 docs
 - Setup: 4 docs
 - Tasks: 14 docs
 - Testing: 5 docs
-- Troubleshooting: 1 doc
+- Troubleshooting: 3 docs
 
 ---
 
@@ -395,7 +414,7 @@ If you can't find what you're looking for:
 
 ## 📖 Last Updated
 
-October 18, 2025
+October 18, 2025 - Added SVG icon implementation, Git hook fix, and Jest SVG import fix documentation
 
 ---
 

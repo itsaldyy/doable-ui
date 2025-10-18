@@ -19,10 +19,18 @@ if [[ ! "$SCRIPT_DIR" =~ git-hooks ]]; then
   fi
 fi
 
-# Source utilities
-source "$SCRIPT_DIR/../utils/colors.sh"
-source "$SCRIPT_DIR/../utils/logging.sh"
+# Save SCRIPT_DIR before sourcing utilities (they may overwrite it)
+SAVED_SCRIPT_DIR=$SCRIPT_DIR
+UTIL_DIR="$SCRIPT_DIR/../utils"
 
+# Source utilities
+source "$UTIL_DIR/colors.sh"
+source "$UTIL_DIR/logging.sh"
+
+# Load saved SCRIPT_DIR
+SCRIPT_DIR=$SAVED_SCRIPT_DIR
+
+# Restore SCRIPT_DIR after sourcing
 log_header "Pre-commit Checks"
 
 # Track if any check fails
@@ -36,15 +44,13 @@ FAILED=0
 # 1. Linting - Catch bugs, vulnerabilities, and standard violations first
 # 2. Type Checking - Validate TypeScript correctness
 # 3. Unit Tests - Verify functional correctness
-# 4. Whitespace Cleanup - Clean up formatting issues
-# 5. Code Formatting - Apply final formatting polish
+# 4. Code Formatting - Apply final formatting polish
 #
 # This order ensures we validate correctness before applying cosmetic fixes
 CHECKS=(
   "lint-staged.sh:Linting (ESLint):1"
   "check-types.sh:Type Checking (TypeScript):1"
   "run-tests.sh:Unit Tests:1"
-  "cleanup-whitespace.sh:Whitespace Cleanup:1"
   "format-code.sh:Code Formatting (Prettier):1"
 )
 
@@ -57,7 +63,20 @@ for check in "${CHECKS[@]}"; do
 
   log_step "Running: $description"
 
-  if bash "$SCRIPT_DIR/$script"; then
+  # Full path to the script
+  SCRIPT_PATH="$SCRIPT_DIR/$script"
+
+  # Debug: show what we're trying to run
+  if [ ! -f "$SCRIPT_PATH" ]; then
+    log_error "Script not found: $SCRIPT_PATH"
+    if [ "$required" = "1" ]; then
+      FAILED_CHECKS+=("$description")
+      FAILED=1
+    fi
+    continue
+  fi
+
+  if bash "$SCRIPT_PATH"; then
     log_success "$description passed"
   else
     EXIT_CODE=$?
