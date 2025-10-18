@@ -10,8 +10,8 @@ This document covers common issues and solutions when using automatic Node.js ve
 
 ```bash
 $ cd to-do-react-ts/
-direnv: loading ~/Dev/personal/projects/to-do-react-ts/.envrc
-Found '/home/user/Dev/personal/projects/to-do-react-ts/.nvmrc' with version <20.19.5>
+direnv: loading ~/path/to/to-do-react-ts/.envrc
+Found '/home/user/path/to/projects/to-do-react-ts/.nvmrc' with version <20.19.5>
 Now using node v20.19.5 (npm v10.8.2)
 __vsc_prompt_cmd_original: command not found
 ```
