@@ -1,4 +1,4 @@
-# Doable
+# <img src="public/doable.svg" alt="Doable Logo" width="32" height="32" style="vertical-align: middle;"> Doable
 
 A modern, responsive to-do list application built with React, TypeScript, and Tailwind CSS.
 
