@@ -55,6 +55,12 @@ export function TodoApp(): JSX.Element {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 py-8 px-4">
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
+            >
+                Skip to main content
+            </a>
             <div className="max-w-3xl mx-auto">
                 <header className="text-center mb-8">
                     <a
@@ -74,16 +80,19 @@ export function TodoApp(): JSX.Element {
                 </header>
 
                 <main
+                    id="main-content"
                     className="bg-white rounded-xl shadow-lg p-6 space-y-6"
                     aria-label="Todo list application"
                 >
                     {/* Error Message */}
                     {shouldShowError && (
-                        <ErrorMessage
-                            message={error}
-                            type={getErrorType(error)}
-                            onDismiss={handleDismissError}
-                        />
+                        <div aria-live="assertive" aria-atomic="true">
+                            <ErrorMessage
+                                message={error}
+                                type={getErrorType(error)}
+                                onDismiss={handleDismissError}
+                            />
+                        </div>
                     )}
 
                     {/* Loading State */}
@@ -92,13 +101,14 @@ export function TodoApp(): JSX.Element {
                             className="flex items-center justify-center py-12"
                             role="status"
                             aria-live="polite"
+                            aria-label="Loading todos"
                         >
                             <div className="text-center">
                                 <div
                                     className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"
                                     aria-hidden="true"
                                 ></div>
-                                <p className="text-gray-700">
+                                <p className="text-gray-700" aria-live="polite">
                                     Loading your todos...
                                 </p>
                             </div>
@@ -114,10 +124,6 @@ export function TodoApp(): JSX.Element {
                         </>
                     )}
                 </main>
-
-                <footer className="text-center mt-8 text-gray-600 text-sm">
-                    <p>Built with React, TypeScript, and Tailwind CSS</p>
-                </footer>
             </div>
         </div>
     );

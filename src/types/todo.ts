@@ -1,13 +1,13 @@
 /**
  * Core type definitions for the Todo application
- * 
+ *
  * This file defines the data structures used throughout the application,
  * including the Todo entity and related types for state management.
  */
 
 /**
  * Represents a single todo item
- * 
+ *
  * @property id - Unique identifier (UUID v4)
  * @property text - Task description (1-500 characters)
  * @property completed - Completion status
@@ -15,36 +15,36 @@
  * @property updatedAt - Last modification timestamp
  */
 export interface Todo {
-  id: string;
-  text: string;
-  completed: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+    id: string;
+    text: string;
+    completed: boolean;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 /**
  * Application state for managing todos
- * 
+ *
  * @property todos - Array of todo items
  * @property isLoading - Loading state indicator
  * @property error - Error message if any operation fails
  */
 export interface TodoState {
-  todos: Todo[];
-  isLoading: boolean;
-  error: string | null;
+    todos: Todo[];
+    isLoading: boolean;
+    error: string | null;
 }
 
 /**
  * Storage schema for localStorage persistence
  * Includes version for future migration support
- * 
+ *
  * @property todos - Array of todo items to persist
  * @property version - Schema version for data migration
  */
 export interface StorageSchema {
-  todos: Todo[];
-  version: string;
+    todos: Todo[];
+    version: string;
 }
 
 /**
@@ -52,19 +52,19 @@ export interface StorageSchema {
  * Dates are stored as ISO strings for JSON compatibility
  */
 export interface SerializedTodo {
-  id: string;
-  text: string;
-  completed: boolean;
-  createdAt: string;
-  updatedAt: string;
+    id: string;
+    text: string;
+    completed: boolean;
+    createdAt: string;
+    updatedAt: string;
 }
 
 /**
  * Serialized storage schema
  */
 export interface SerializedStorageSchema {
-  todos: SerializedTodo[];
-  version: string;
+    todos: SerializedTodo[];
+    version: string;
 }
 
 /**
