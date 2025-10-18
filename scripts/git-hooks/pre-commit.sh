@@ -44,15 +44,13 @@ FAILED=0
 # 1. Linting - Catch bugs, vulnerabilities, and standard violations first
 # 2. Type Checking - Validate TypeScript correctness
 # 3. Unit Tests - Verify functional correctness
-# 4. Whitespace Cleanup - Clean up formatting issues
-# 5. Code Formatting - Apply final formatting polish
+# 4. Code Formatting - Apply final formatting polish
 #
 # This order ensures we validate correctness before applying cosmetic fixes
 CHECKS=(
   "lint-staged.sh:Linting (ESLint):1"
   "check-types.sh:Type Checking (TypeScript):1"
   "run-tests.sh:Unit Tests:1"
-  "cleanup-whitespace.sh:Whitespace Cleanup:1"
   "format-code.sh:Code Formatting (Prettier):1"
 )
 
