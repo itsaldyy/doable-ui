@@ -1,6 +1,8 @@
-# To-Do List Application
+# Doable
 
 A modern, responsive to-do list application built with React, TypeScript, and Tailwind CSS.
+
+**"Anything is doable!"** - A simple yet powerful task management app that helps you get things done.
 
 ## Technology Stack
 
@@ -234,6 +236,64 @@ This project includes extensive documentation covering all aspects of developmen
 - 🔧 **Troubleshooting** - Problem-solving guides, Git hooks, Jest fixes
 
 ## Deployment
+
+### Architecture Overview
+
+**Live Site:** [https://d3oisvzydii1gm.cloudfront.net](https://d3oisvzydii1gm.cloudfront.net)
+
+```mermaid
+graph TB
+    subgraph " "
+        direction LR
+        Dev[👨‍💻 Developer<br/>npm run build]
+
+        subgraph AWS["AWS Deployment Pipeline"]
+            direction LR
+            Build[📦 Build Process<br/>• Vite bundling<br/>• Asset optimization<br/>• Tree shaking]
+            S3[☁️ S3 Bucket<br/>• Static file storage<br/>• Website hosting<br/>• Origin for CDN]
+            CF[🌐 CloudFront CDN<br/>• Global distribution<br/>• HTTPS/SSL<br/>• Edge caching]
+        end
+
+        User[👤 End Users<br/>Worldwide]
+    end
+
+    subgraph Benefits["Key Benefits"]
+        direction TB
+        B1[🚀 Performance<br/>• Fast global delivery<br/>• Edge caching<br/>• Compression]
+        B2[🔒 Security<br/>• HTTPS by default<br/>• DDoS protection<br/>• Secure origin]
+        B3[💰 Cost Effective<br/>• ~$0.01/month<br/>• Free Tier eligible<br/>• Pay per use]
+    end
+
+    Dev -->|aws s3 sync| Build
+    Build -->|Upload files| S3
+    S3 -->|Origin| CF
+    CF -->|HTTPS Response| User
+    User -->|HTTPS Request| CF
+
+    CF -.->|Benefits| B1
+    CF -.->|Benefits| B2
+    S3 -.->|Benefits| B3
+
+    style Dev fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Build fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style S3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style CF fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style User fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style B1 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    style B2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style B3 fill:#f1f8e9,stroke:#558b2f,stroke-width:2px
+    style AWS fill:#fff9e6,stroke:#ff9900,stroke-width:3px
+    style Benefits fill:#f5f5f5,stroke:#616161,stroke-width:2px
+```
+
+**Deployment Flow:**
+
+1. **Developer** runs `npm run build` to create production bundle
+2. **Build Process** optimizes assets with Vite (bundling, tree-shaking, minification)
+3. **Upload** to S3 bucket using `aws s3 sync dist/ s3://doable.io --delete`
+4. **S3** stores static files and serves as origin for CloudFront
+5. **CloudFront** distributes content globally with edge caching and HTTPS
+6. **Users** access the app via CloudFront URL with fast, secure delivery
 
 ### Production Deployment Options
 

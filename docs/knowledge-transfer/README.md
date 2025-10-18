@@ -1,6 +1,6 @@
 # Knowledge Transfer Documentation
 
-Welcome to the Todo List Application knowledge transfer documentation! This folder contains comprehensive documentation of all major decisions, lessons learned, and recommendations for future development.
+Welcome to the **Doable** knowledge transfer documentation! This folder contains comprehensive documentation of all major decisions, lessons learned, and recommendations for future development.
 
 ## 📁 Folder Structure
 
