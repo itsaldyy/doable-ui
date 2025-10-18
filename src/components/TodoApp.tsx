@@ -3,6 +3,7 @@ import { useTodos } from '../hooks/useTodos';
 import { TodoInput } from './TodoInput';
 import { TodoList } from './TodoList';
 import { ErrorMessage } from './ErrorMessage';
+import DoableIcon from '../assets/doable.svg?react';
 
 /**
  * TodoApp is the main application component that integrates all todo functionality.
@@ -56,12 +57,20 @@ export function TodoApp(): JSX.Element {
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 py-8 px-4">
             <div className="max-w-3xl mx-auto">
                 <header className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-blue-600 mb-2">
-                        My Todo List
-                    </h1>
-                    <p className="text-gray-700">
-                        The world-class To Do app of your life
-                    </p>
+                    <a
+                        href="/"
+                        className="inline-flex items-center gap-3 group hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+                        aria-label="Doable - Home"
+                    >
+                        <DoableIcon
+                            className="w-10 h-10 flex-shrink-0"
+                            aria-hidden="true"
+                        />
+                        <h1 className="text-4xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
+                            Doable
+                        </h1>
+                    </a>
+                    <p className="text-gray-700 mt-2">Anything is doable!</p>
                 </header>
 
                 <main
