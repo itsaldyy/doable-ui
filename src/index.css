@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Global styles and CSS reset */
 *,
@@ -25,8 +27,6 @@ body {
 
 #root {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Improve text rendering */
