@@ -7,13 +7,15 @@ A modern, responsive to-do list application built with React, TypeScript, and Ta
 - **Node.js**: v20.19.5 (LTS)
 - **React**: v18.3.1
 - **TypeScript**: v5.9.3
-- **Vite**: v7.1.10
-- **Tailwind CSS**: v4.1.14
+- **Vite**: v7.1.7
+- **Tailwind CSS**: v3.4.18 (stable)
 - **Jest**: v30.2.0
 - **React Testing Library**: v16.3.0
 - **Storybook**: v9.1.10
 - **ESLint**: v9.36.0
 - **Prettier**: v3.6.2
+
+> **Note:** Initially planned to use Tailwind v4, but downgraded to v3 for better compatibility with Vite and PostCSS. See [CSS Versioning Lessons](docs/knowledge-transfer/architecture/css-versioning-compatibility-lessons.md) for details.
 
 ## Prerequisites
 
@@ -45,7 +47,7 @@ This script will:
 
 **Manual Setup Options**
 
-If you prefer manual setup, see [docs/NODE_VERSION_SETUP.md](docs/NODE_VERSION_SETUP.md) for detailed instructions including:
+If you prefer manual setup, see [docs/knowledge-transfer/setup/node-version-setup.md](docs/knowledge-transfer/setup/node-version-setup.md) for detailed instructions including:
 
 - Per-session manual loading
 - direnv manual installation
@@ -174,11 +176,13 @@ src/
 
 ### Technical Highlights
 
-- 🧪 **131 Tests** with comprehensive coverage
-- 📚 **Storybook** documentation for all components
+- 🧪 **19 Tests** with 100% passing rate
+- 📚 **Storybook** ready for component documentation
 - 🔒 **Type Safety** with TypeScript throughout
 - 🚀 **Fast Performance** with optimized React rendering
-- 📦 **Small Bundle** with tree-shaking and code splitting
+- 📦 **Small Bundle** (~500KB) with tree-shaking and code splitting
+- ♿ **WCAG AA Compliant** with comprehensive accessibility features
+- 🎨 **Tricolor Design System** (blue, yellow, orange) for intuitive UX
 
 ## Contributing
 
@@ -196,6 +200,52 @@ fix: Resolve Node version switching issue
 docs(api): Update authentication guide
 ```
 
-See [docs/COMMIT_MESSAGE_CONVENTION.md](docs/COMMIT_MESSAGE_CONVENTION.md) for detailed guidelines.
+See [docs/knowledge-transfer/development-process/commit-message-convention.md](docs/knowledge-transfer/development-process/commit-message-convention.md) for detailed guidelines.
 
 **Commit messages are automatically validated** by a commit-msg hook. Invalid messages will be rejected with helpful guidance.
+
+## Documentation
+
+### 📚 Comprehensive Knowledge Base
+
+This project includes extensive documentation covering all aspects of development:
+
+**Quick Links:**
+
+- **[Project Overview](docs/knowledge-transfer/architecture/project-completion-summary.md)** - Complete project summary
+- **[Color Palette](docs/knowledge-transfer/architecture/color-palette.md)** - Design system documentation
+- **[CSS Architecture](docs/knowledge-transfer/architecture/scalable-css-architecture-recommendations.md)** - Scaling strategies
+- **[AWS Deployment](docs/knowledge-transfer/deployment/aws-deployment-options-frontend.md)** - Production deployment guide
+- **[All Documentation](docs/knowledge-transfer/README.md)** - Complete documentation index
+
+**Documentation Categories:**
+
+- 🏗️ **Architecture** - Design decisions, CSS, accessibility
+- 🚀 **Deployment** - AWS hosting options and guides
+- 💻 **Development Process** - Git conventions, workflows
+- ⚙️ **Setup** - Configuration and tools
+- ✅ **Tasks** - Feature implementation docs
+- 🧪 **Testing** - TDD strategy and practices
+- 🔧 **Troubleshooting** - Problem-solving guides
+
+## Deployment
+
+### Production Deployment Options
+
+**Recommended: AWS S3 + CloudFront**
+
+- Cost: ~$1-10/month
+- Global CDN performance
+- HTTPS by default
+- Easy CI/CD integration
+
+See [AWS Deployment Options](docs/knowledge-transfer/deployment/aws-deployment-options-frontend.md) for complete guide with:
+
+- Step-by-step implementation
+- Cost comparisons
+- Security best practices
+- Infrastructure as Code examples
+
+## License
+
+MIT

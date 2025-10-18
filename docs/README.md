@@ -2,202 +2,276 @@
 
 ## Overview
 
-This directory contains all project documentation, organized by audience and purpose.
+This directory contains all project documentation, organized by category and purpose. The documentation follows a comprehensive "docs-as-you-go" methodology, capturing decisions, rationale, and lessons learned throughout the development process.
 
 ## Directory Structure
 
 ```
 docs/
-├── README.md                          # This file - documentation index
-├── TESTING_DISCUSSION_SUMMARY.md      # Complete testing strategy discussion
-└── knowledge-transfer/                # Technical documentation for team
-    ├── task-5-todoinput-component.md
-    ├── task-5-refactoring-summary.md
-    ├── test-reorganization.md
-    ├── testing-decisions-and-rationale.md
-    └── testing-strategy.md
+├── README.md                    # This file - documentation index
+└── knowledge-transfer/          # Comprehensive technical documentation
+    ├── README.md                # Knowledge transfer navigation guide
+    ├── ORGANIZATION.md          # Documentation organization guide
+    ├── architecture/            # Design decisions, CSS, accessibility
+    ├── deployment/              # AWS deployment options
+    ├── development-process/     # Git conventions, workflows
+    ├── setup/                   # Configuration and tools
+    ├── tasks/                   # Feature implementation docs
+    ├── testing/                 # TDD strategy and practices
+    └── troubleshooting/         # Problem-solving guides
 ```
+
+## Quick Start
+
+### 🚀 New to the Project?
+
+**Start here in order:**
+
+1. **[Project Completion Summary](knowledge-transfer/architecture/project-completion-summary.md)** - Complete overview
+2. **[Color Palette](knowledge-transfer/architecture/color-palette.md)** - Design system
+3. **[Knowledge Transfer Index](knowledge-transfer/README.md)** - Full documentation map
+
+### 🎯 Need Specific Information?
+
+**By Category:**
+
+- 🏗️ **[Architecture](knowledge-transfer/architecture/)** - Design, CSS, accessibility
+- 🚀 **[Deployment](knowledge-transfer/deployment/)** - AWS hosting options
+- 💻 **[Development Process](knowledge-transfer/development-process/)** - Git, conventions
+- ⚙️ **[Setup](knowledge-transfer/setup/)** - Configuration, tools
+- ✅ **[Tasks](knowledge-transfer/tasks/)** - Implementation guides
+- 🧪 **[Testing](knowledge-transfer/testing/)** - TDD strategy
+- 🔧 **[Troubleshooting](knowledge-transfer/troubleshooting/)** - Problem-solving
 
 ## Document Categories
 
-### Team Documentation (Shareable)
+### 🏗️ Architecture (5 docs)
 
-These documents are intended for team members, code reviewers, and future maintainers.
+**Design & CSS:**
 
-#### [Testing Strategy](./testing-strategy.md)
+- [CSS Versioning & Compatibility Lessons](knowledge-transfer/architecture/css-versioning-compatibility-lessons.md) - Tailwind v4 → v3 story
+- [Scalable CSS Architecture](knowledge-transfer/architecture/scalable-css-architecture-recommendations.md) - Future scaling strategies
+- [Color Palette](knowledge-transfer/architecture/color-palette.md) - Tricolor design system
 
-**Purpose:** Define the project's testing approach
-**Audience:** All developers
-**Contents:**
+**Project Overview:**
 
-- Testing philosophy and principles
-- Testing pyramid (unit, integration, E2E)
-- Test organization and structure
-- Best practices and anti-patterns
-- Running tests and CI/CD integration
+- [Project Completion Summary](knowledge-transfer/architecture/project-completion-summary.md) - Comprehensive overview
+- [TodoInput Accessibility Audit](knowledge-transfer/architecture/todoinput-accessibility-audit.md) - Accessibility best practices
 
-**When to read:** Before writing any tests
+### 🚀 Deployment (1 doc)
 
-#### [Knowledge Transfer](./knowledge-transfer/)
+- [AWS Deployment Options](knowledge-transfer/deployment/aws-deployment-options-frontend.md) - Complete deployment guide
+    - S3 + CloudFront (recommended, ~$1-10/month)
+    - AWS Amplify Hosting
+    - Cost analysis and security best practices
 
-**Purpose:** Document implementation decisions and lessons learned
-**Audience:** Team members, code reviewers, future maintainers
-**Contents:**
+### 💻 Development Process (2 docs)
 
-- Task implementation summaries
-- Technical decisions and rationale
-- Lessons learned
-- Code examples and patterns
+- [Commit Message Convention](knowledge-transfer/development-process/commit-message-convention.md) - Git standards
+- [Error Reporting Enhancement](knowledge-transfer/development-process/error-reporting-enhancement.md) - Error handling patterns
 
-**When to read:** When working on related features or reviewing code
+### ⚙️ Setup (4 docs)
 
-## Quick Reference
+- [Node Version Setup](knowledge-transfer/setup/node-version-setup.md) - Node.js version management
+- [Git Hooks Setup](knowledge-transfer/setup/git-hooks-setup.md) - Husky and commit hooks
+- [Prettier Integration](knowledge-transfer/setup/prettier-integration-summary.md) - Code formatting
+- [Hook Order Optimization](knowledge-transfer/setup/hook-order-optimization-summary.md) - Git hook optimization
 
-### I want to...
+### ✅ Tasks (14 docs)
 
-**...understand the testing strategy**
-→ Read [testing-strategy.md](./testing-strategy.md)
+Complete implementation documentation for all features:
 
-**...know why we made certain testing decisions**
-→ Read [testing-decisions-and-rationale.md](./knowledge-transfer/testing-decisions-and-rationale.md)
+- Task 1-12: Full development timeline
+- Component implementations (TodoInput, TodoItem, TodoList, etc.)
+- Hook implementations (useTodos, useLocalStorage)
+- Integration and polish
 
-**...see how a task was implemented**
-→ Check [knowledge-transfer/](./knowledge-transfer/) for task summaries
+### 🧪 Testing (5 docs)
 
-## Document Templates
+- [Testing Strategy](knowledge-transfer/testing/testing-strategy.md) - Overall approach
+- [Testing Decisions & Rationale](knowledge-transfer/testing/testing-decisions-and-rationale.md) - Why we test this way
+- [TDD Enforcement](knowledge-transfer/testing/tdd-enforcement-restructuring.md) - TDD methodology
+- [Test Reorganization](knowledge-transfer/testing/test-reorganization.md) - Test structure
+- [Testing Strategy Assessment](knowledge-transfer/testing/testing-strategy-assessment.md) - Evaluation
 
-### Task Implementation Summary Template
+### 🔧 Troubleshooting (1 doc)
 
-```markdown
-# Task X: [Feature Name]
+- [Node Version Management](knowledge-transfer/troubleshooting/troubleshooting-node-version-management.md) - Fixing Node.js issues
 
-## Task Summary & Goal
+## Common Use Cases
 
-[What was built and why]
+### "I want to..."
 
-## Analysis & Rationale
+**...understand the project:**
+→ [Project Completion Summary](knowledge-transfer/architecture/project-completion-summary.md)
 
-### Context & Background
+**...fix CSS issues:**
+→ [CSS Versioning Lessons](knowledge-transfer/architecture/css-versioning-compatibility-lessons.md)
 
-[Referenced documents, existing code]
+**...deploy to production:**
+→ [AWS Deployment Options](knowledge-transfer/deployment/aws-deployment-options-frontend.md)
 
-### Thought Process & Rationale
+**...understand the color system:**
+→ [Color Palette](knowledge-transfer/architecture/color-palette.md)
 
-[Key decisions and why]
+**...set up my environment:**
+→ [Setup Documentation](knowledge-transfer/setup/)
 
-## Deliverables & Outcomes
+**...understand how a feature was built:**
+→ [Task Documentation](knowledge-transfer/tasks/)
 
-### Output
+**...write tests:**
+→ [Testing Documentation](knowledge-transfer/testing/)
 
-[What was created]
+## Documentation Standards
 
-### Benefits & Impact
+All documents follow the **"docs-as-you-go"** methodology with consistent structure:
 
-[Value added]
+1. **Task Summary & Goal** - What and why
+2. **Analysis & Rationale** - How we thought about it
+3. **Deliverables & Outcomes** - What we built and its impact
+4. **Synthesis & Future Implications** - What we learned and what's next
 
-## Synthesis & Future Implications
+## Key Learnings Documented
 
-### Synthesis
+### Technical Lessons
 
-[Key learnings]
+1. **Framework Version Selection**
+    - Stable > Bleeding Edge for production
+    - Evaluate ecosystem maturity
+    - Consider documentation quality
 
-### Next Steps
+2. **CSS Architecture**
+    - Start simple, plan for scale
+    - Design tokens enable flexibility
+    - Component composition reduces duplication
 
-[What comes next]
-```
+3. **Deployment Strategy**
+    - S3 + CloudFront is cost-effective
+    - Infrastructure as Code for repeatability
+    - Monitor costs from day one
 
-### Testing Decision Template
+### Process Lessons
 
-```markdown
-## Decision #X: [Decision Name]
+1. **Documentation Value**
+    - Saves time for future developers
+    - Captures institutional knowledge
+    - Enables better decision-making
 
-### The Decision
+2. **Iterative Development**
+    - Build incrementally
+    - Test continuously
+    - Refactor with confidence
 
-[What was decided]
+3. **Pragmatic Choices**
+    - Choose tools that solve problems
+    - Don't chase trends
+    - Plan for maintenance
 
-### Context
+## Documentation Stats
 
-[Project context, constraints, goals]
-
-### Alternatives Considered
-
-[Other options and why they were rejected]
-
-### Rationale
-
-[Why this decision was made]
-
-### Impact
-
-[How this affects the project]
-```
-
-## Maintenance
-
-### When to Update Documentation
-
-**After each task:**
-
-- Create task summary in knowledge-transfer/
-- Document any new decisions
-- Update relevant strategy documents
-
-**When strategy changes:**
-
-- Update testing-strategy.md
-- Document rationale in testing-decisions-and-rationale.md
-- Update affected task summaries
-
-**When learning something new:**
-
-- Document insights in task summaries
-- Update strategy documents as needed
-- Note important decisions and rationale
-
-### Documentation Best Practices
-
-1. **Write as you go** - Don't wait until the end
-2. **Be honest** - Document mistakes and lessons learned
-3. **Include examples** - Code snippets are valuable
-4. **Link related docs** - Create a web of knowledge
-5. **Update regularly** - Keep docs current and relevant
+- **Total Documents:** 33
+- **Categories:** 7
+- **Total Pages:** ~200+ pages
+- **Code Examples:** 100+
+- **Diagrams:** 15+
 
 ## Contributing
 
-### For Team Members
+### When to Add New Documentation
 
-When adding new documentation:
+**Create new docs for:**
 
-1. Place in knowledge-transfer/ directory
-2. Update this README index
-3. Link from related documents
-4. Use consistent formatting
-5. Follow the provided templates
+- Major architectural decisions
+- Significant technical challenges
+- New patterns or practices
+- Lessons learned from incidents
 
-## Version History
+### Where to Put New Docs
 
-- **Initial Version** - Created comprehensive documentation structure
-- **Task 5 Refactoring** - Added integration testing documentation
-- **Testing Strategy** - Defined hybrid approach (Option C)
+Choose the appropriate category:
 
----
+- **architecture/** - Design decisions, CSS, accessibility
+- **deployment/** - Hosting, infrastructure
+- **development-process/** - Git, conventions
+- **setup/** - Configuration, tools
+- **tasks/** - Feature implementation
+- **testing/** - Test strategy, TDD
+- **troubleshooting/** - Problem-solving
 
-## Additional Resources
+### Documentation Checklist
 
-### External Links
+- [ ] Follow the 4-section structure
+- [ ] Include practical code examples
+- [ ] Provide context and rationale
+- [ ] Link to related documents
+- [ ] Use clear, concise language
+- [ ] Add to appropriate category
+- [ ] Update README if needed
 
-- [React Testing Library Documentation](https://testing-library.com/react)
+## External Resources
+
+### Official Documentation
+
+- [React 18 Documentation](https://react.dev/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS v3](https://tailwindcss.com/docs)
+- [Vite Documentation](https://vitejs.dev/)
 - [Jest Documentation](https://jestjs.io/)
-- [Testing JavaScript by Kent C. Dodds](https://testingjavascript.com/)
+- [React Testing Library](https://testing-library.com/react)
+
+### Best Practices
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Testing JavaScript](https://testingjavascript.com/)
 - [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
-- [Common Testing Mistakes](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
-### Internal Links
+## Internal Links
 
-- [Project Requirements](../.kiro/specs/todo-list-app/requirements.md)
+### Specifications
+
+- [Requirements Document](../.kiro/specs/todo-list-app/requirements.md)
 - [Design Document](../.kiro/specs/todo-list-app/design.md)
 - [Task List](../.kiro/specs/todo-list-app/tasks.md)
 
+### Key Documentation
+
+- [Knowledge Transfer Index](knowledge-transfer/README.md)
+- [Organization Guide](knowledge-transfer/ORGANIZATION.md)
+- [Project Completion Summary](knowledge-transfer/architecture/project-completion-summary.md)
+
+## Maintenance
+
+### Update Schedule
+
+**Monthly:**
+
+- Review and update cost estimates
+- Check for outdated links
+- Update technology versions
+
+**Quarterly:**
+
+- Comprehensive documentation review
+- Update best practices
+- Archive obsolete documents
+
+**Annually:**
+
+- Major documentation overhaul
+- Align with current project state
+- Update architecture diagrams
+
+## Version History
+
+| Version | Date         | Changes                             |
+| ------- | ------------ | ----------------------------------- |
+| 1.0.0   | Oct 18, 2025 | Initial comprehensive documentation |
+| 1.1.0   | Oct 18, 2025 | Reorganized into logical categories |
+
 ---
 
-_Keep this index updated as documentation grows. It's your map to all project knowledge._
+**📚 For complete documentation navigation, see [knowledge-transfer/README.md](knowledge-transfer/README.md)**
+
+_"Documentation is a love letter to your future self."_ - Damian Conway
